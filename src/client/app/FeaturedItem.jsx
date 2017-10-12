@@ -39,4 +39,3 @@ class FeaturedItem extends Component {
 }
 
 export default FeaturedItem;
-
