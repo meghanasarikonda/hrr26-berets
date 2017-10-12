@@ -9,7 +9,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('../db/models/user');
 const Product = require('../db/models/product');
 // Please sign up at https://developer.walmartlabs.com/ for API KEY.
-const walmartKey = process.env.REDISCLOUD_URL || require('./api-keys');
+const walmartKey = process.env.API_KEY || require('./api-keys');
 const walmartReq = require('walmart')(walmartKey);
 const nodemailer = require('nodemailer');
 const cache = require('./api-requests');
