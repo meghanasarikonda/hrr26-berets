@@ -2,23 +2,20 @@ import React, { Component } from 'react';
 import ListItem from './ListItem.jsx';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import NewListModal from './NewListModal.jsx';
 
 class ShoppingListEntry extends Component {
 
   constructor(props) {
     super(props);
+
     this.handleListChange = this.handleListChange.bind(this);
-    this.handleNewList = this.handleNewList.bind(this);
   }
 
   handleListChange(e) {
     let name = (e.target.value) ? e.target.value : 'Untitled';
     this.props.handleChange(name);
     this.props.setName();
-  }
-
-  handleNewList() {
-    this.props.newList();
   }
 
   render() {
@@ -38,7 +35,7 @@ class ShoppingListEntry extends Component {
             </span>
           }
           <div style={{'marginTop': '5px', 'marginBottom': '10px'}}>
-            <button className="btn btn-info button-name btn-xs" onClick={this.handleNewList}>New List</button>
+            <NewListModal newList={this.props.newList} />
             <button className="btn btn-success button-name btn-xs" onClick={this.props.saveList}>Save List</button>
             <button className="btn btn-danger button-name btn-xs" onClick={this.props.removeList}>Remove List</button>
           </div>

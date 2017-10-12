@@ -251,8 +251,7 @@ exports.saveExisting = (req, res) => {
 //create a new shoppinglist if shopping list doesn't exist inside of User.shoppinglist object
 exports.createList = (req, res) => {
   let username = req.session.passport.user;
-  console.log(req.body);
-  let newName = 'Untitled';
+  let newName = req.body.newListName;
   User.findOne({username: username}).exec((err, user) => {
     if (user) {
       let obj = user.shoppingList;

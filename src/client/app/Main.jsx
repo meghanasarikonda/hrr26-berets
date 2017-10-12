@@ -151,8 +151,8 @@ class Main extends Component {
       });
   }
 
-  createList() {
-    axios.post('/create-list', {listName: 'New List!'})
+  createList(newListName) {
+    axios.post('/create-list', {newListName: newListName})
       .then((res) => {
         return res.data.shoppingList;
       })
