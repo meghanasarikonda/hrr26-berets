@@ -41,7 +41,7 @@ class Main extends Component {
     if (this.props.loggedIn) {
       this.getmyList();
     }
-     this.getCatalog();
+    this.getCatalog();
   }
 
   getCatalog() {
@@ -151,8 +151,8 @@ class Main extends Component {
       });
   }
 
-  createList() {
-    axios.post('/create-list')
+  createList(newListName) {
+    axios.post('/create-list', {newListName: newListName})
       .then((res) => {
         return res.data.shoppingList;
       })
@@ -289,7 +289,7 @@ class Main extends Component {
     if (this.props.loggedIn) {
       ShoppingContainer = (
         <div className="col-xs-12">
-          <br /><ShoppingList
+          <ShoppingList
             currentListName={this.state.currentListName}
             list={this.state.currentList}
             removeItem={this.handleRemoveFromList}

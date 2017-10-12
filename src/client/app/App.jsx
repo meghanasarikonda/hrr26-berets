@@ -5,6 +5,7 @@ import Main from './Main.jsx';
 import Signup from './Signup.jsx';
 import Login from './Login.jsx';
 import ProductDetails from './ProductDetails.jsx';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends React.Component {
   constructor(props) {
@@ -61,17 +62,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Router>
-          <Switch>
-            <Route exact path="/" render={(props) => (<Main user={this.state.user} loggedIn={this.state.loggedIn} handleLogOut={this.handleLogOut} {...props}/>)} />
-            <Route exact path="/signupUser" render={(props) => (<Signup loggedIn={this.state.loggedIn} handleSignUp={this.handleSignUp} {...props}/>)} />
-            <Route exact path="/loginUser" render={(props) => (<Login handleLogIn={this.handleLogIn} loggedIn={this.state.loggedIn} {...props}/>)} />
-            <Route exact path="/productDetails" render={(props) => (<ProductDetails {...props}/>)} />
+      <MuiThemeProvider>
+        <div>
+          <Router>
+            <Switch>
+              <Route exact path="/" render={(props) => (<Main user={this.state.user} loggedIn={this.state.loggedIn} handleLogOut={this.handleLogOut} {...props}/>)} />
+              <Route exact path="/signupUser" render={(props) => (<Signup loggedIn={this.state.loggedIn} handleSignUp={this.handleSignUp} {...props}/>)} />
+              <Route exact path="/loginUser" render={(props) => (<Login handleLogIn={this.handleLogIn} loggedIn={this.state.loggedIn} {...props}/>)} />
+              <Route exact path="/productDetails" render={(props) => (<ProductDetails {...props}/>)} />
 
-          </Switch>
-        </Router>
-      </div>
+            </Switch>
+          </Router>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
