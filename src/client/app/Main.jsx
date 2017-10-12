@@ -100,7 +100,7 @@ class Main extends Component {
   handleRemoveFromList(id) {
     let list = this.state.currentList.slice();
     let filtered = list.filter(product => product.itemId !== id);
-    this.setState({ currentList: filtered });
+    this.setState({ currentList: filtered }, this.saveList);
   }
 
   handleNameChange(name) {
