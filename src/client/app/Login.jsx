@@ -1,5 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Login extends React.Component {
   constructor(props) {
@@ -14,7 +18,7 @@ class Login extends React.Component {
   }
 
   logIn(e) {
-    e.preventDefault();
+    //e.preventDefault();
     let user = { username: this.state.username, password: this.state.password };
     this.props.handleLogIn(user);
     this.setState({ password: '' });
@@ -34,20 +38,35 @@ class Login extends React.Component {
       return <Redirect to='/'/>;
     }
     return (
-      <div>
-        <h2> &emsp; Login </h2>
-        <div id="login" className="pull-left">
-          <form onSubmit={this.logIn}>
-            <label>e-mail</label>&nbsp;&nbsp;
-            <input type="email" placeholder="name@example.com" onChange={this.handleUsername} value={this.state.username} required></input><br/><br/>
-            <label>password</label>&nbsp;&nbsp;
-            <input type="password" value={this.state.password} onChange={this.handlePassword} required></input> <br /><br />
-            <button type="submit">Submit</button>
-          </form>
+      <MuiThemeProvider>
+        <div>
+          <div className="wrapper login-forms-container">
+            <div className="login-forms">
+              <h1>LOGIN</h1>
+              <form onSubmit={this.logIn}>
+                <label>email</label>
+                <br />
+                <input type="email" placeholder="name@example.com" onChange={this.handleUsername} value={this.state.username} required/>
+                <br />
+                <label>password</label>
+                <input type="password" name="password" value={this.state.password} onChange={this.handlePassword} required/>
+              </form>
+              <div className="login-form-button">
+                <FlatButton
+                  label="Submit"
+                  primary={true}
+                  onClick={() => {
+                    this.logIn();
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
+
 
 export default Login;

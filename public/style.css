@@ -2,6 +2,38 @@ body {
   background-color: #d9e8f7;
 }
 
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  grid-auto-flow: row;
+}
+
+.wrapper div {
+  text-align: center;
+}
+
+.wrapper form {
+  min-height: 100px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.login-forms-container {
+  margin-top: 20%;
+}
+
+.login-forms {
+  min-height: 220px;
+  max-width: 320px;
+  border: 2px solid black;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
+  position: center;
+}
+
 #title {
   color: #224153;
 }
