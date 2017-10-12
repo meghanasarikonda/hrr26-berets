@@ -66,19 +66,17 @@ export default class ShoppingList extends Component {
           <div className="list-tools">
             {
               (this.state.renaming)
-                ? <span>
-                  <h3>
-                    <input onChange={this.handleName} type="text" placeholder={this.props.currentListName}/>
-                    <button className="btn button-name btn-success btn-xs" type="submit" onClick={this.changeName}>Save</button>
-                    <button className="btn button-name btn-warning btn-xs" type="submit" onClick={this.cancelRename}>Cancel</button>
-                  </h3>
-                </span>
-                : <span>
-                  <h3>{this.props.currentListName}
-                    <div className="divider"/>
-                    <input onClick={this.handleRename} type="button" className="btn btn-xs" value="Rename"/>
-                  </h3>
-                </span>
+                ?
+                <h3>
+                  <input onChange={this.handleName} type="text" value={this.props.currentListName}/>
+                  <button className="btn button-name btn-success btn-xs" type="submit" onClick={this.changeName}>Save</button>
+                  <button className="btn button-name btn-warning btn-xs" type="submit" onClick={this.cancelRename}>Cancel</button>
+                </h3>
+                :
+                <h3>
+                  <span className="wish-list-name" onClick={this.handleRename}>{this.props.currentListName}</span>
+
+                </h3>
             }
 
             <ShoppingListEntry myList={this.props.myList} shoppingList={this.props.list} removeItem={this.props.removeItem} handleChange={this.handleChange} setName={this.setName} currentListName={this.props.currentListName} newList={this.props.newList} saveList={this.props.saveList} removeList={this.props.removeList}/>
