@@ -62,9 +62,7 @@ class NewListModal extends React.Component {
 
     return (
       <div>
-        <FloatingActionButton mini={true} onClick={this.handleOpen}>
-          <ContentAdd />
-        </FloatingActionButton>
+        <RaisedButton label="Create Wish List" onClick={this.handleOpen} />
         <Dialog
           title="Create new wish list"
           actions={actions}
