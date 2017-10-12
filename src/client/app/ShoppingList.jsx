@@ -36,7 +36,7 @@ export default class ShoppingList extends Component {
   }
 
   handleRename() {
-    this.setState({ renaming: !this.state.renaming });
+    this.setState({ renaming: true });
   }
 
   cancelRename() {
