@@ -245,7 +245,7 @@ exports.saveExisting = (req, res) => {
 
 //create a new shoppinglist if shopping list doesn't exist inside of User.shoppinglist object
 exports.createList = (req, res) => {
-  console.log(req.session);
+  console.log(req.session.passport.user);
   let username = req.session.passport.user;
   let newName = req.body.newListName;
   User.findOne({username: username}).exec((err, user) => {
@@ -510,9 +510,9 @@ exports.updateProducts = (req, res) => {
 
 //send wishlist to user Email
 exports.sendList = (req, res) => {
-  //var userEmail = req.session.passport.user;
-  console.log(req.session.passport);
-  var wishlist = 'hello';
+  var userEmail = req.session.passport.user;
+  var wishlist = req.body.list;
+  console.log('this is my req.body.list', req.body.list);
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -521,9 +521,9 @@ exports.sendList = (req, res) => {
     }
   });
   var mailOptions = {
-    to: 'lillianlee118@gmail.com',
+    to: userEmail,
     subject: 'Hi from wishList! Here is your wishlist!',
-    text: 'Your wishlist: ' + wishlist
+    html: '<b> Hi </b>' + userEmail + '! <br />' + '<b>Here are your wishlist items: <br /></b>' + wishlist + '<br /><b> Share with others! Visit walmart.com to see more. </b>'
   };
   transporter.sendMail(mailOptions, function(error, response) {
     if (error) {

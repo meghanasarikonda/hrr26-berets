@@ -89,6 +89,7 @@ export default class ShoppingList extends Component {
               newList={this.props.newList}
               saveList={this.props.saveList}
               removeList={this.props.removeList}
+              sendList={this.props.sendList}
             />
           </div>
         </div>

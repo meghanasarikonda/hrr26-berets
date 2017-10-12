@@ -84,4 +84,4 @@ app.post('/login', handler.logInUser);
 app.get('/logout', handler.logOutUser);
 
 // sends user list
-app.post('/send-list', handler.sendList);
+app.post('/sendlist', handler.sendList);

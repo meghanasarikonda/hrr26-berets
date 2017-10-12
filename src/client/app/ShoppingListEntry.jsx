@@ -38,7 +38,7 @@ class ShoppingListEntry extends Component {
             <NewListModal newList={this.props.newList} />
             <button className="btn btn-success button-name btn-xs" onClick={this.props.saveList}>Save List</button>
             <button className="btn btn-danger button-name btn-xs" onClick={this.props.removeList}>Remove List</button>
-            <button className="btn btn-danger button-name btn-xs" onClick={this.props.handleSend}>Send To Myself</button>
+            <button className="btn btn-info button-name btn-xs" onClick={this.props.sendList}>Email To Myself</button>
 
           </div>
         </div>

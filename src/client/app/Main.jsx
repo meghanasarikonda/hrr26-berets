@@ -8,6 +8,7 @@ import Signup from './Signup.jsx';
 import SearchResults from './SearchResults.jsx';
 import ShoppingList from './ShoppingList.jsx';
 import { Route, Link, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
+import request from 'superagent';
 
 class Main extends Component {
   constructor(props) {
@@ -25,7 +26,6 @@ class Main extends Component {
     this.handleRemoveFromList = this.handleRemoveFromList.bind(this);
     this.createList = this.createList.bind(this);
     this.saveList = this.saveList.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleListChange = this.handleListChange.bind(this);
     this.getmyList = this.getmyList.bind(this);
@@ -34,7 +34,7 @@ class Main extends Component {
     this.removeList = this.removeList.bind(this);
     this.handleRenameList = this.handleRenameList.bind(this);
     this.renameList = this.renameList.bind(this);
-    this.handleSend = this.handleSend.bind(this);
+    this.sendList = this.sendList.bind(this);
   }
 
   componentDidMount() {
@@ -45,12 +45,22 @@ class Main extends Component {
     this.getCatalog();
   }
 
-  handleSend() {
-    var url = 'localhost:3000/send-list';
+  sendList() {
+    console.log('clicked');
+    var url = 'http://localhost:3000/sendlist';
+    var list = this.state.currentList;
+
+    var arr = [];
+    for (var i = 0; i < list.length; i++) {
+      var item = [ ];
+      item[0] = list[i].name;
+      //item[1] = list[i].url;
+      arr.push('<br />' + item);
+    }
     request
       .post(url)
       .send({
-        list: this.state.myList,
+        list: arr,
       })
       .end((err, res) => {
         if (err) {
@@ -319,7 +329,7 @@ class Main extends Component {
             myList={this.state.myList}
             shoppingList={this.state.shoppingList}
             currentList={this.state.currentList}
-            sendList={this.handleSend}
+            sendList={this.sendList}
           />
         </div>
       );
