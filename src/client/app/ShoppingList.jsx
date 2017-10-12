@@ -6,7 +6,7 @@ export default class ShoppingList extends Component {
     super(props);
 
     this.state = {
-      listName: '',
+      listName: this.props.currentListName,
       currentList: this.props.list,
       renaming: false
     };
@@ -31,8 +31,8 @@ export default class ShoppingList extends Component {
     this.setState({ renaming: false });
   }
 
-  handleName(e) {
-    this.setState({ listName: e.target.value });
+  handleName(name) {
+    this.setState({ listName: name });
   }
 
   handleRename() {
@@ -77,7 +77,7 @@ export default class ShoppingList extends Component {
               (this.state.renaming)
                 ?
                 <h3>
-                  <input className="wish-list-edit" onChange={this.handleName} type="text" placeholder={this.props.currentListName} onKeyPress={this.handleEnterKeyPress}/>
+                  <input className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" value={this.state.listName} onKeyPress={this.handleEnterKeyPress} />
                   <button className="btn button-name btn-success btn-xs" type="submit" onClick={this.changeName}>Save</button>
                   <button className="btn button-name btn-warning btn-xs" type="submit" onClick={this.cancelRename}>Cancel</button>
                 </h3>
