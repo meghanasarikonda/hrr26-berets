@@ -78,7 +78,6 @@ export default class ShoppingList extends Component {
                 ?
                 <h3>
                   <input className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" value={this.state.listName} onKeyPress={this.handleEnterKeyPress} />
-                  <button className="btn button-name btn-success btn-xs" type="submit" onClick={this.changeName}>Save</button>
                   <button className="btn button-name btn-warning btn-xs" type="submit" onClick={this.cancelRename}>Cancel</button>
                 </h3>
                 :

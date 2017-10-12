@@ -193,7 +193,9 @@ class Main extends Component {
 
   handleRenameList(newName) {
     let oldName = this.state.currentListName;
-    this.renameList(oldName, newName);
+    if (oldName !== newName) {
+      this.renameList(oldName, newName);
+    }
   }
 
   renameList(oldName, newName) {
