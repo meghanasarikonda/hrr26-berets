@@ -89,9 +89,12 @@ class Main extends Component {
     if (!this.props.loggedIn) {
       return alert('Please Log In to Continue');
     }
+    console.log(this.state.currentList);
     let list = this.state.currentList.slice();
     list.push(item);
-    this.setState({ currentList: list });
+    this.setState({
+      currentList: list
+    }, this.saveList);
   }
 
   handleRemoveFromList(id) {
@@ -136,6 +139,7 @@ class Main extends Component {
     let saved = {};
     saved[this.state.currentListName] = this.state.currentList;
     let url = (this.state.shoppingList[this.state.currentListName] !== undefined) ? '/save-existing' : '/save';
+    console.log(saved);
     axios.post(url, saved)
       .then((res) => {
         let updatedList = res.data.shoppingList;
