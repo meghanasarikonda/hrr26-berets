@@ -1,5 +1,5 @@
 const redis = require('redis');
-const client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
+const client = process.env.REDISCLOUD_URL !== undefined ? redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true}) : redis.createClient();
 
 client.on('error', (err) => {
   console.log('Err ---> ', err);
