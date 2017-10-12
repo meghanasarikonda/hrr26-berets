@@ -4,17 +4,20 @@ import ShoppingListEntry from './ShoppingListEntry.jsx';
 export default class ShoppingList extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      listName: '',
+      currentList: this.props.list,
+      renaming: false
+    };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleName = this.handleName.bind(this);
     this.setName = this.setName.bind(this);
     this.changeName = this.changeName.bind(this);
     this.handleRename = this.handleRename.bind(this);
     this.cancelRename = this.cancelRename.bind(this);
-    this.state = {
-      listName: '',
-      currentList: this.props.list,
-      renaming: false
-    };
+    this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
   }
 
 
@@ -58,6 +61,12 @@ export default class ShoppingList extends Component {
     this.setState({ renaming: false });
   }
 
+  handleEnterKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.changeName();
+    }
+  }
+
   render() {
     const { list } = this.props;
     if (this.props.myList || this.props.list) {
@@ -68,14 +77,13 @@ export default class ShoppingList extends Component {
               (this.state.renaming)
                 ?
                 <h3>
-                  <input onChange={this.handleName} type="text" value={this.props.currentListName}/>
+                  <input className="wish-list-edit" onChange={this.handleName} type="text" placeholder={this.props.currentListName} onKeyPress={this.handleEnterKeyPress}/>
                   <button className="btn button-name btn-success btn-xs" type="submit" onClick={this.changeName}>Save</button>
                   <button className="btn button-name btn-warning btn-xs" type="submit" onClick={this.cancelRename}>Cancel</button>
                 </h3>
                 :
                 <h3>
                   <span className="wish-list-name" onClick={this.handleRename}>{this.props.currentListName}</span>
-
                 </h3>
             }
 
