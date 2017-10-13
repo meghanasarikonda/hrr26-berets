@@ -41,7 +41,6 @@ export default class ShoppingList extends Component {
 
   cancelRename() {
     this.setState({ renaming: false });
-
   }
 
   setName() {
@@ -90,11 +89,19 @@ export default class ShoppingList extends Component {
                   <span className="wish-list-name" onClick={this.handleRename}>{this.props.currentListName}</span>
                 </h3>
             }
-
-            <ShoppingListEntry myList={this.props.myList} shoppingList={this.props.list} removeItem={this.props.removeItem} handleChange={this.handleChange} setName={this.setName} currentListName={this.props.currentListName} newList={this.props.newList} saveList={this.props.saveList} removeList={this.props.removeList}/>
-
+            <ShoppingListEntry
+              myList={this.props.myList}
+              shoppingList={this.props.list}
+              removeItem={this.props.removeItem}
+              handleChange={this.handleChange}
+              setName={this.setName}
+              currentListName={this.props.currentListName}
+              newList={this.props.newList}
+              saveList={this.props.saveList}
+              removeList={this.props.removeList}
+              sendList={this.props.sendList}
+            />
           </div>
-
         </div>
       );
     }
