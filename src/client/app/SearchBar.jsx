@@ -5,7 +5,7 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'query': undefined
+      'query': null
     };
     this.onSearch = this.onSearch.bind(this);
     this.searchProducts = this.searchProducts.bind(this);
@@ -32,10 +32,6 @@ class SearchBar extends Component {
         console.log(err);
       });
     e.preventDefault();
-  }
-
-  onClick() {
-    console.log(this.state.query);
   }
 
   render() {

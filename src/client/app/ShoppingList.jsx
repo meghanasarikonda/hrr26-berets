@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem.jsx';
 import ShoppingListEntry from './ShoppingListEntry.jsx';
+import IconButton from 'material-ui/IconButton';
+import AlertToRemoveList from './AlertToRemoveList.jsx';
+
 export default class ShoppingList extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +23,6 @@ export default class ShoppingList extends Component {
     this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
     this.moveCursorToEnd = this.moveCursorToEnd.bind(this);
   }
-
 
   handleChange(listName) {
     this.state.listName = listName;
@@ -84,11 +86,15 @@ export default class ShoppingList extends Component {
                 ?
                 <h3>
                   <input autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
+                  <AlertToRemoveList removeList={this.props.removeList}/>
                 </h3>
                 :
-                <h3>
-                  <span className="wish-list-name" onClick={this.handleRename}>{this.props.currentListName}</span>
-                </h3>
+                <div>
+                  <h3>
+                    <span className="wish-list-name" onClick={this.handleRename}>{this.props.currentListName}</span>
+                  </h3>
+                  <AlertToRemoveList removeList={this.props.removeList}/>
+                </div>
             }
             <ShoppingListEntry
               myList={this.props.myList}

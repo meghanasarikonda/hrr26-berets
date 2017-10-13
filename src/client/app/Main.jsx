@@ -9,6 +9,7 @@ import SearchResults from './SearchResults.jsx';
 import ShoppingList from './ShoppingList.jsx';
 import { Route, Link, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 import request from 'superagent';
+import Header from './Header.jsx';
 
 class Main extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class Main extends Component {
     this.saveList = this.saveList.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleListChange = this.handleListChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.getmyList = this.getmyList.bind(this);
     this.getFeaturedList = this.getFeaturedList.bind(this);
     this.getCatalog = this.getCatalog.bind(this);
@@ -37,7 +39,7 @@ class Main extends Component {
     this.sendList = this.sendList.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getTrendingItems();
     if (this.props.loggedIn) {
       this.getmyList();
@@ -356,36 +358,39 @@ class Main extends Component {
     }
 
     return (
-      <div className="container">
-        <div className="row" style={{display: 'flex', alignItems: 'flex-end'}}>
-          <div className="col-xs-4">
-            <br /><br /><h1 style={{ marginBottom: '0' }}> <div id='title'> wishList </div></h1>
+      <div>
+        <Header loggedIn={this.props.loggedIn}/>
+        <div className="container">
+          <div className="row" style={{display: 'flex', alignItems: 'flex-end'}}>
+            <div className="col-xs-4">
+              <br /><br /><h1 style={{ marginBottom: '0' }}> <div id='title'> wishList </div></h1>
+            </div>
+            {/* Nav buttons: render Login, Signup if a user isn't logged in,
+            render 'Welcome <username>', Logout if a user is logged in */}
+            <div className="col-xs-3 text-right">
+              {NavContainer}
+            </div>
+            {/* Search bar component */}
+            <div className="col-xs-3">
+              <SearchBar handleSearch={this.handleSearch}/>
+            </div>
+          </div><br /><br />
+          {/* Popular items retrieved from Walmart's 'Trending' api */}
+          <div className="row">
+            {PopularItemsContainer}
+          </div><br />
+          {/* Search results render here */}
+          <div className="row">
+            {SearchResultsContainer}
           </div>
-          {/* Nav buttons: render Login, Signup if a user isn't logged in,
-          render 'Welcome <username>', Logout if a user is logged in */}
-          <div className="col-xs-3 text-right">
-            {NavContainer}
+          {/* Featured wishlists based on best-selling items in the Walmart catalog */}
+          <div className="row">
+            {FeaturedListContainer}
           </div>
-          {/* Search bar component */}
-          <div className="col-xs-3">
-            <SearchBar handleSearch={this.handleSearch}/>
+          {/* User's current shopping list */}
+          <div className="row">
+            { ShoppingContainer}
           </div>
-        </div><br /><br />
-        {/* Popular items retrieved from Walmart's 'Trending' api */}
-        <div className="row">
-          {PopularItemsContainer}
-        </div><br />
-        {/* Search results render here */}
-        <div className="row">
-          {SearchResultsContainer}
-        </div>
-        {/* Featured wishlists based on best-selling items in the Walmart catalog */}
-        <div className="row">
-          {FeaturedListContainer}
-        </div>
-        {/* User's current shopping list */}
-        <div className="row">
-          { ShoppingContainer}
         </div>
       </div>
     );
