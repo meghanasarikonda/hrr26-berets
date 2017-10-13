@@ -123,3 +123,7 @@ body {
 .wish-list-name:hover {
   background-color: #F9EDBE;
 }
+
+.clear-icon {
+  float: right;
+}
