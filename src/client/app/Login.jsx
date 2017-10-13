@@ -15,6 +15,7 @@ class Login extends React.Component {
     this.logIn = this.logIn.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
+    this.func = this.func.bind(this);
   }
 
   logIn(e) {
@@ -33,7 +34,13 @@ class Login extends React.Component {
     this.setState({ password: e.target.value });
   }
 
+  func(e) {
+    this.props.handleLogIn('fromGoogle');
+    e.preventDefault();
+  }
+
   render() {
+    console.log('this.props', this.props);
     if (this.props.loggedIn) {
       return <Redirect to='/'/>;
     }
@@ -51,7 +58,6 @@ class Login extends React.Component {
                 <label>password</label>
                 <input type="password" name="password" value={this.state.password} onChange={this.handlePassword} required/>
               </form>
-              <a href="/auth/google">Sign In with Google</a>
               <div className="login-form-button">
                 <FlatButton
                   label="Submit"
@@ -61,6 +67,7 @@ class Login extends React.Component {
                   }}
                 />
               </div>
+              <a href="/auth/google" onClick={this.func}>Sign In with Google</a>
             </div>
           </div>
         </div>
