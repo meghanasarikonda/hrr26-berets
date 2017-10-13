@@ -35,16 +35,25 @@ class App extends React.Component {
   }
 
   handleLogIn(user) {
-    axios.post('/login', user)
-      .then((res) => {
+    if (user !== 'fromGoogle') {
+      axios.post('/login', user)
+        .then((res) => {
+          this.setState({
+            loggedIn: true,
+            user: user.username
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      if (user === 'fromGoogle') {
         this.setState({
           loggedIn: true,
-          user: user.username
+          username: 'meghana@gmail.com'
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      }
+    }
   }
 
   handleLogOut() {
