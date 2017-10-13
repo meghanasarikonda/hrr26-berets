@@ -4,17 +4,21 @@ import ShoppingListEntry from './ShoppingListEntry.jsx';
 export default class ShoppingList extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      listName: '',
+      currentList: this.props.list,
+      renaming: false
+    };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleName = this.handleName.bind(this);
     this.setName = this.setName.bind(this);
     this.changeName = this.changeName.bind(this);
     this.handleRename = this.handleRename.bind(this);
     this.cancelRename = this.cancelRename.bind(this);
-    this.state = {
-      listName: '',
-      currentList: this.props.list,
-      renaming: false
-    };
+    this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
+    this.moveCursorToEnd = this.moveCursorToEnd.bind(this);
   }
 
 
@@ -28,12 +32,12 @@ export default class ShoppingList extends Component {
     this.setState({ renaming: false });
   }
 
-  handleName(e) {
-    this.setState({ listName: e.target.value });
+  handleName(name) {
+    this.setState({ listName: name });
   }
 
   handleRename() {
-    this.setState({ renaming: !this.state.renaming });
+    this.setState({ renaming: true });
   }
 
   cancelRename() {
@@ -57,6 +61,18 @@ export default class ShoppingList extends Component {
     this.setState({ renaming: false });
   }
 
+  handleEnterKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.changeName();
+    }
+  }
+
+  moveCursorToEnd(e) {
+    var temp = e.target.value;
+    e.target.value = '';
+    e.target.value = temp;
+  }
+
   render() {
     const { list } = this.props;
     if (this.props.myList || this.props.list) {
@@ -65,19 +81,14 @@ export default class ShoppingList extends Component {
           <div className="list-tools">
             {
               (this.state.renaming)
-                ? <span>
-                  <h3>
-                    <input onChange={this.handleName} type="text" placeholder={this.props.currentListName}/>
-                    <button className="btn button-name btn-success btn-xs" type="submit" onClick={this.changeName}>Save</button>
-                    <button className="btn button-name btn-warning btn-xs" type="submit" onClick={this.cancelRename}>Cancel</button>
-                  </h3>
-                </span>
-                : <span>
-                  <h3>{this.props.currentListName}
-                    <div className="divider"/>
-                    <input onClick={this.handleRename} type="button" className="btn btn-xs" value="Rename"/>
-                  </h3>
-                </span>
+                ?
+                <h3>
+                  <input autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" value={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
+                </h3>
+                :
+                <h3>
+                  <span className="wish-list-name" onClick={this.handleRename}>{this.props.currentListName}</span>
+                </h3>
             }
             <ShoppingListEntry
               myList={this.props.myList}

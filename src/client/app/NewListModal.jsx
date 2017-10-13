@@ -22,6 +22,7 @@ class NewListModal extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.enableSubmitButton = this.enableSubmitButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
   }
 
   handleOpen() {
@@ -42,6 +43,12 @@ class NewListModal extends React.Component {
       this.setState({submit: true});
     } else {
       this.setState({submit: false});
+    }
+  }
+
+  handleEnterKeyPress(e) {
+    if (this.state.submit === false && e.key === 'Enter') {
+      this.handleSubmit();
     }
   }
 
@@ -70,8 +77,10 @@ class NewListModal extends React.Component {
           open={this.state.open}
         >
           <TextField onChange={this.enableSubmitButton}
+            onKeyPress={this.handleEnterKeyPress}
             ref="newListName"
-            hintText="Enter wish list name" />
+            hintText="Enter wish list name"
+            autoFocus />
         </Dialog>
       </div>
     );

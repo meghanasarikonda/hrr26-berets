@@ -255,7 +255,7 @@ exports.createList = (req, res) => {
         let i = 1;
         let newNewName;
         while (true) {
-          let temp = newName + ' ' + i;
+          let temp = `${newName} (${i})`;
           if (!obj[temp]) {
             newNewName = temp;
             break;

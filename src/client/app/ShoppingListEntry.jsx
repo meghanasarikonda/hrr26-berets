@@ -24,7 +24,7 @@ class ShoppingListEntry extends Component {
         <div className="col-xs-4">
           { (this.props.myList) ?
             <span>
-              <select className="form-control" onChange={this.handleListChange} defaultValue={this.props.currentListName}>
+              <select className="form-control" onChange={this.handleListChange} value={this.props.currentListName}>
                 {this.props.myList.map(list => <option key={list}>{list}</option>)}
               </select>
             </span> :
@@ -36,7 +36,6 @@ class ShoppingListEntry extends Component {
           }
           <div style={{'marginTop': '5px', 'marginBottom': '10px'}}>
             <NewListModal newList={this.props.newList} />
-            <button className="btn btn-success button-name btn-xs" onClick={this.props.saveList}>Save List</button>
             <button className="btn btn-danger button-name btn-xs" onClick={this.props.removeList}>Remove List</button>
             <button className="btn btn-info button-name btn-xs" onClick={this.props.sendList}>Email To Myself</button>
 

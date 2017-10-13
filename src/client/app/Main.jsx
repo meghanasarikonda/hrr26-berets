@@ -116,15 +116,18 @@ class Main extends Component {
     if (!this.props.loggedIn) {
       return alert('Please Log In to Continue');
     }
+    console.log(this.state.currentList);
     let list = this.state.currentList.slice();
     list.push(item);
-    this.setState({ currentList: list });
+    this.setState({
+      currentList: list
+    }, this.saveList);
   }
 
   handleRemoveFromList(id) {
     let list = this.state.currentList.slice();
     let filtered = list.filter(product => product.itemId !== id);
-    this.setState({ currentList: filtered });
+    this.setState({ currentList: filtered }, this.saveList);
   }
 
   handleNameChange(name) {
@@ -163,6 +166,7 @@ class Main extends Component {
     let saved = {};
     saved[this.state.currentListName] = this.state.currentList;
     let url = (this.state.shoppingList[this.state.currentListName] !== undefined) ? '/save-existing' : '/save';
+    console.log(saved);
     axios.post(url, saved)
       .then((res) => {
         let updatedList = res.data.shoppingList;
@@ -216,7 +220,9 @@ class Main extends Component {
 
   handleRenameList(newName) {
     let oldName = this.state.currentListName;
-    this.renameList(oldName, newName);
+    if (oldName !== newName) {
+      this.renameList(oldName, newName);
+    }
   }
 
   renameList(oldName, newName) {
