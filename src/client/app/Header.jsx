@@ -1,14 +1,35 @@
 import React from 'react';
+import SearchBar from './SearchBar.jsx';
+import { Route, Link, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
     if (this.props.loggedIn) {
       return (
         <div>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container">
+              <a className="navbar-brand" href="#">wishList</a>
+              <div className="collapse navbar-right navbar-collapse" id="navbarText">
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <span className="navbar-text">
+                        Welcome!
+                    </span>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#" onClick={this.props.handleLogout}>Log Out</a>
+                  </li>
+                </ul>
+                <SearchBar handleSearch={this.props.handleSearch}/>
+              </div>
+            </div>
+          </nav>
         </div>
       );
     } else {
@@ -17,22 +38,16 @@ class Header extends React.Component {
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container">
               <a className="navbar-brand" href="#">wishList</a>
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
               <div className="collapse navbar-right navbar-collapse" id="navbarText">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Sign Up</a>
+                    <Link to="/signupUser" className="nav-link" href="#">Sign Up</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Log In</a>
+                    <Link to="/loginUser" className="nav-link" href="#">Log In</Link>
                   </li>
                 </ul>
-                <div className="form-inline my-2 my-lg-0">
-                  <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
-                  <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                </div>
+                <SearchBar handleSearch={this.props.handleSearch}/>
               </div>
             </div>
           </nav>
@@ -41,5 +56,3 @@ class Header extends React.Component {
     }
   }
 }
-
-export default Header;

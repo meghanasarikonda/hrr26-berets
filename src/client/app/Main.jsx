@@ -14,6 +14,7 @@ import Header from './Header.jsx';
 class Main extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       popular: [],
       searchResults: [],
@@ -23,6 +24,7 @@ class Main extends Component {
       myList: [],
       shoppingList: {}
     };
+
     this.handleAddToList = this.handleAddToList.bind(this);
     this.handleRemoveFromList = this.handleRemoveFromList.bind(this);
     this.createList = this.createList.bind(this);
@@ -264,24 +266,6 @@ class Main extends Component {
   }
 
   render() {
-    let NavContainer = (
-      <span>
-        <Link to="/signupUser" > <b>Sign Up</b> </Link> &emsp;
-        <Link to="/loginUser" > <b>Log In</b> </Link>
-      </span>
-    );
-    if (this.props.loggedIn) {
-      NavContainer = (
-        <span> Welcome, <strong>{this.props.user}</strong>!&nbsp;&nbsp;
-          <a className="btn btn-link" onClick={this.props.handleLogOut}>
-          Log Out
-          </a>
-        &nbsp;
-        &nbsp;
-        </span>
-      );
-    }
-
     let PopularItemsContainer = (
       <div className="col-xs-12">
         <br />
@@ -359,22 +343,9 @@ class Main extends Component {
 
     return (
       <div>
-        <Header loggedIn={this.props.loggedIn}/>
+        <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut}/>
         <div className="container">
-          <div className="row" style={{display: 'flex', alignItems: 'flex-end'}}>
-            <div className="col-xs-4">
-              <br /><br /><h1 style={{ marginBottom: '0' }}> <div id='title'> wishList </div></h1>
-            </div>
-            {/* Nav buttons: render Login, Signup if a user isn't logged in,
-            render 'Welcome <username>', Logout if a user is logged in */}
-            <div className="col-xs-3 text-right">
-              {NavContainer}
-            </div>
-            {/* Search bar component */}
-            <div className="col-xs-3">
-              <SearchBar handleSearch={this.handleSearch}/>
-            </div>
-          </div><br /><br />
+          <br />
           {/* Popular items retrieved from Walmart's 'Trending' api */}
           <div className="row">
             {PopularItemsContainer}
