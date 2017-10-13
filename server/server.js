@@ -8,7 +8,9 @@ const handler = require('./request-handler');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const LocalStrategy = require('passport-local').Strategy;
-
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+require('dotenv').config();
+//console.log('-------->', GoogleStrategy)
 const User = require('../db/models/user');
 const Product = require('../db/models/product');
 
@@ -25,6 +27,48 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static('public'));
+// authentication using passport google
+// http://localhost:3000/
+passport.use(new GoogleStrategy({
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  callbackURL: 'http://localhost:3000/auth/google/callback'
+},
+function(accessToken, refreshToken, profile, done) {
+  console.log('profileid', profile);
+  User.findOne({ googleId: profile.id }, function (err, user) {
+    console.log('hererere');
+    if (err) {
+      return done(err);
+    }
+    if (user) {
+      return done(null, user);
+    } else {
+      var newUser = new User();
+      console.log('newUser', newUser);
+      passport.serializeUser(function(user, done) {
+        done(null, user._id);
+      });
+      passport.deserializeUser(function(id, done) {
+        User.findById(id, function(err, user) {
+          done(err, user);
+        });
+      });
+      // newUser.google.id = profile.id;
+      // newUser.google.token = token;
+      // newUser.google.name = profile.displayName;
+      // newUser.google.email = profile.emails[0].value;
+      console.log('------newUser-----', newUser, '<------');
+      newUser.save(function(err) {
+        if (err) {
+          console.log(err);
+        }
+        return done(null, newUser);
+      });
+    }
+  });
+}
+));
 
 // This is supposed to prevent CORS errors
 app.use((req, res, next) => {
@@ -85,3 +129,10 @@ app.get('/logout', handler.logOutUser);
 
 // sends user list
 app.post('/sendlist', handler.sendList);
+app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/plus.login']}));
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);

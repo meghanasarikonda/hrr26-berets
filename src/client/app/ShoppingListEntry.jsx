@@ -37,7 +37,6 @@ class ShoppingListEntry extends Component {
           <div style={{'marginTop': '5px', 'marginBottom': '10px'}}>
             <NewListModal newList={this.props.newList} />
             <button className="btn btn-info button-name btn-xs" onClick={this.props.sendList}>Email To Myself</button>
-
           </div>
         </div>
         <div className="col-xs-12">
