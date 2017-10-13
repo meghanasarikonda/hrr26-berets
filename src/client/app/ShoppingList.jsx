@@ -95,10 +95,7 @@ export default class ShoppingList extends Component {
                   <h3>
                     <span className="wish-list-name" onClick={this.handleRename}>{this.props.currentListName}</span>
                   </h3>
-                  <IconButton>
-                    <i className="clear-icon material-icons" onClick={this.props.removeList}>clear</i>
-                  </IconButton>
-                  <AlertToRemoveList />
+                  <AlertToRemoveList removeList={this.props.removeList}/>
                 </div>
             }
             <ShoppingListEntry

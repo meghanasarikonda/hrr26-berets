@@ -2,6 +2,7 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import IconButton from 'material-ui/IconButton';
 
 /**
  * Alerts are urgent interruptions, requiring acknowledgement, that inform the user about a situation.
@@ -11,7 +12,7 @@ export default class DialogExampleAlert extends React.Component {
     super(props);
 
     this.state = {
-      open: false,
+      open: this.props.alertStatus,
     };
 
     this.handleOpen = this.handleOpen.bind(this);
@@ -42,7 +43,9 @@ export default class DialogExampleAlert extends React.Component {
 
     return (
       <div>
-        <RaisedButton label="Alert" onClick={this.handleOpen} />
+        <IconButton>
+          <i className="clear-icon material-icons" onClick={this.handleOpen}>clear</i>
+        </IconButton>
         <Dialog
           actions={actions}
           modal={false}
