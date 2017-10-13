@@ -18,6 +18,7 @@ export default class ShoppingList extends Component {
     this.handleRename = this.handleRename.bind(this);
     this.cancelRename = this.cancelRename.bind(this);
     this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
+    this.moveCursorToEnd = this.moveCursorToEnd.bind(this);
   }
 
 
@@ -67,6 +68,12 @@ export default class ShoppingList extends Component {
     }
   }
 
+  moveCursorToEnd(e) {
+    var temp = e.target.value;
+    e.target.value = '';
+    e.target.value = temp;
+  }
+
   render() {
     const { list } = this.props;
     if (this.props.myList || this.props.list) {
@@ -77,7 +84,7 @@ export default class ShoppingList extends Component {
               (this.state.renaming)
                 ?
                 <h3>
-                  <input className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" value={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
+                  <input autoFocus onFocus={this.moveCursorToEnd} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" value={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
                   <button className="btn button-name btn-warning btn-xs" type="submit" onClick={this.cancelRename}>Cancel</button>
                 </h3>
                 :
