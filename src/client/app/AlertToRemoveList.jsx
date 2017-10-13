@@ -7,7 +7,7 @@ import IconButton from 'material-ui/IconButton';
 /**
  * Alerts are urgent interruptions, requiring acknowledgement, that inform the user about a situation.
  */
-export default class DialogExampleAlert extends React.Component {
+export default class AlertToRemoveList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -17,6 +17,7 @@ export default class DialogExampleAlert extends React.Component {
 
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleOpen() {
@@ -27,6 +28,11 @@ export default class DialogExampleAlert extends React.Component {
     this.setState({open: false});
   }
 
+  handleDelete() {
+    this.setState({open: false});
+    this.props.removeList();
+  }
+
   render() {
     const actions = [
       <FlatButton
@@ -35,9 +41,9 @@ export default class DialogExampleAlert extends React.Component {
         onClick={this.handleClose}
       />,
       <FlatButton
-        label="Discard"
+        label="Delete"
         primary={true}
-        onClick={this.handleClose}
+        onClick={this.handleDelete}
       />,
     ];
 
@@ -52,7 +58,7 @@ export default class DialogExampleAlert extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          Discard draft?
+          Are you sure you want to delete this wish list?
         </Dialog>
       </div>
     );
