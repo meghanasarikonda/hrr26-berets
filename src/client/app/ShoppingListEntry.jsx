@@ -24,7 +24,7 @@ class ShoppingListEntry extends Component {
         <div className="col-xs-4">
           { (this.props.myList) ?
             <span>
-              <select className="form-control" onChange={this.handleListChange} value={this.props.currentListName}>
+              <select className="form-control" onChange={this.handleListChange} defaultValue={this.props.currentListName}>
                 {this.props.myList.map(list => <option key={list}>{list}</option>)}
               </select>
             </span> :
