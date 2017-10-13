@@ -37,7 +37,7 @@ class Main extends Component {
     this.sendList = this.sendList.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getTrendingItems();
     if (this.props.loggedIn) {
       this.getmyList();
