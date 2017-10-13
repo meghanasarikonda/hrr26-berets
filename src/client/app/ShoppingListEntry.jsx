@@ -3,6 +3,9 @@ import ListItem from './ListItem.jsx';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import NewListModal from './NewListModal.jsx';
+import Snackbar from 'material-ui/Snackbar';
+import RaisedButton from 'material-ui/RaisedButton';
+import EmailSnackBar from './EmailSnackBar.jsx';
 
 class ShoppingListEntry extends Component {
 
@@ -11,6 +14,7 @@ class ShoppingListEntry extends Component {
 
     this.handleListChange = this.handleListChange.bind(this);
   }
+
 
   handleListChange(e) {
     let name = (e.target.value) ? e.target.value : 'Untitled';
@@ -21,6 +25,7 @@ class ShoppingListEntry extends Component {
   render() {
     return (
       <div>
+        <EmailSnackBar sendList={this.props.sendList} />
         <div className="col-xs-4">
           { (this.props.myList) ?
             <span>
@@ -36,7 +41,6 @@ class ShoppingListEntry extends Component {
           }
           <div style={{'marginTop': '5px', 'marginBottom': '10px'}}>
             <NewListModal newList={this.props.newList} />
-            <button className="btn btn-info button-name btn-xs" onClick={this.props.sendList}>Email To Myself</button>
           </div>
         </div>
         <div className="col-xs-12">
