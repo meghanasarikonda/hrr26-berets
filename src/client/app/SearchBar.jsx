@@ -5,7 +5,7 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'query': null
+      'query': ''
     };
     this.onSearch = this.onSearch.bind(this);
     this.searchProducts = this.searchProducts.bind(this);
@@ -20,6 +20,7 @@ class SearchBar extends Component {
   searchProducts(e) {
     var handleSearch = this.props.handleSearch;
     var query = this.state.query;
+
     axios.get('/search', {
       params: {
         query: query
