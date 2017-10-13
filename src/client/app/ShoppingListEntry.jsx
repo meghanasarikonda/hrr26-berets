@@ -5,30 +5,16 @@ import 'react-select/dist/react-select.css';
 import NewListModal from './NewListModal.jsx';
 import Snackbar from 'material-ui/Snackbar';
 import RaisedButton from 'material-ui/RaisedButton';
+import EmailSnackBar from './EmailSnackBar.jsx';
 
 class ShoppingListEntry extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      open: false,
-    };
+
     this.handleListChange = this.handleListChange.bind(this);
   }
 
-  handleTouchTap() {
-    console.log('opened');
-    this.setState({
-      open: true,
-    });
-  }
-
-
-  handleRequestClose() {
-    this.setState({
-      open: false,
-    });
-  }
 
   handleListChange(e) {
     let name = (e.target.value) ? e.target.value : 'Untitled';
@@ -39,19 +25,7 @@ class ShoppingListEntry extends Component {
   render() {
     return (
       <div>
-        <RaisedButton
-          onClick={
-            this.handleTouchTap,
-            this.props.sendList
-          }
-          label="Email Wishlist"
-        />
-        <Snackbar
-          open={this.state.open}
-          message="Email Sent!"
-          autoHideDuration={4000}
-          onRequestClose={this.handleRequestClose}
-        />
+        <EmailSnackBar sendList={this.props.sendList} />
         <div className="col-xs-4">
           { (this.props.myList) ?
             <span>
