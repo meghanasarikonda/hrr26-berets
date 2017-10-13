@@ -79,7 +79,8 @@ class NewListModal extends React.Component {
           <TextField onChange={this.enableSubmitButton}
             onKeyPress={this.handleEnterKeyPress}
             ref="newListName"
-            hintText="Enter wish list name" />
+            hintText="Enter wish list name"
+            autoFocus />
         </Dialog>
       </div>
     );
