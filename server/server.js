@@ -126,12 +126,10 @@ app.get('/myLists', handler.retrieveShopping);
 app.post('/signup', handler.signUpUser);
 app.post('/login', handler.logInUser);
 app.get('/logout', handler.logOutUser);
+app.post('/sendlist', handler.sendList);
 app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/plus.login']}));
 app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/');
-  }
+  passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/' })
 );
 
 //handles sending Email
