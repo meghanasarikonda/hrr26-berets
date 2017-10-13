@@ -12,7 +12,7 @@ export default class AlertToRemoveList extends React.Component {
     super(props);
 
     this.state = {
-      open: this.props.alertStatus,
+      open: false,
     };
 
     this.handleOpen = this.handleOpen.bind(this);
