@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchBar from './SearchBar.jsx';
-import axios from 'axios';
 import { Route, Link, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 export default class Header extends React.Component {
