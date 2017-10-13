@@ -38,12 +38,10 @@ class SearchBar extends Component {
     return (
       <form onSubmit={this.searchProducts} className="search">
         <div className="input-group">
-          <input id={this.state.query} className="form-control" onChange={this.onSearch} type="text"/>
-          <span className="input-group-btn">
-            <button type="submit" id={this.state.query} onClick={this.searchProducts} className="searchBtn btn btn-primary">
+          <input id={this.state.query} className="form-control mr-sm-2" onChange={this.onSearch} type="text" placeholder="Search" aria-label="Search"/>
+          <button type="submit" id={this.state.query} onClick={this.searchProducts} className="btn btn-outline-primary my-2 my-sm-0">
               Search
-            </button>
-          </span>
+          </button>
         </div>
       </form>
     );

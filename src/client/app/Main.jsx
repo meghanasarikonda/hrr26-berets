@@ -359,7 +359,7 @@ class Main extends Component {
 
     return (
       <div>
-        <Header loggedIn={this.props.loggedIn}/>
+        <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch}/>
         <div className="container">
           <div className="row" style={{display: 'flex', alignItems: 'flex-end'}}>
             <div className="col-xs-4">
@@ -369,10 +369,6 @@ class Main extends Component {
             render 'Welcome <username>', Logout if a user is logged in */}
             <div className="col-xs-3 text-right">
               {NavContainer}
-            </div>
-            {/* Search bar component */}
-            <div className="col-xs-3">
-              <SearchBar handleSearch={this.handleSearch}/>
             </div>
           </div><br /><br />
           {/* Popular items retrieved from Walmart's 'Trending' api */}
