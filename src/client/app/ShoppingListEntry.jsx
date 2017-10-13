@@ -3,13 +3,31 @@ import ListItem from './ListItem.jsx';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import NewListModal from './NewListModal.jsx';
+import Snackbar from 'material-ui/Snackbar';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class ShoppingListEntry extends Component {
 
   constructor(props) {
     super(props);
-
+    this.state = {
+      open: false,
+    };
     this.handleListChange = this.handleListChange.bind(this);
+  }
+
+  handleTouchTap() {
+    console.log('opened');
+    this.setState({
+      open: true,
+    });
+  }
+
+
+  handleRequestClose() {
+    this.setState({
+      open: false,
+    });
   }
 
   handleListChange(e) {
@@ -21,6 +39,19 @@ class ShoppingListEntry extends Component {
   render() {
     return (
       <div>
+        <RaisedButton
+          onClick={
+            this.handleTouchTap,
+            this.props.sendList
+          }
+          label="Email Wishlist"
+        />
+        <Snackbar
+          open={this.state.open}
+          message="Email Sent!"
+          autoHideDuration={4000}
+          onRequestClose={this.handleRequestClose}
+        />
         <div className="col-xs-4">
           { (this.props.myList) ?
             <span>
@@ -36,7 +67,6 @@ class ShoppingListEntry extends Component {
           }
           <div style={{'marginTop': '5px', 'marginBottom': '10px'}}>
             <NewListModal newList={this.props.newList} />
-            <button className="btn btn-info button-name btn-xs" onClick={this.props.sendList}>Email To Myself</button>
           </div>
         </div>
         <div className="col-xs-12">
