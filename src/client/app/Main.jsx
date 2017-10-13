@@ -14,6 +14,7 @@ import Header from './Header.jsx';
 class Main extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       popular: [],
       searchResults: [],
@@ -23,6 +24,7 @@ class Main extends Component {
       myList: [],
       shoppingList: {}
     };
+
     this.handleAddToList = this.handleAddToList.bind(this);
     this.handleRemoveFromList = this.handleRemoveFromList.bind(this);
     this.createList = this.createList.bind(this);
@@ -359,7 +361,7 @@ class Main extends Component {
 
     return (
       <div>
-        <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch}/>
+        <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut}/>
         <div className="container">
           <div className="row" style={{display: 'flex', alignItems: 'flex-end'}}>
             <div className="col-xs-4">

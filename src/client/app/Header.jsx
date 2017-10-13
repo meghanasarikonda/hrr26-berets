@@ -1,9 +1,12 @@
 import React from 'react';
 import SearchBar from './SearchBar.jsx';
+import axios from 'axios';
+import { Route, Link, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
@@ -21,7 +24,7 @@ class Header extends React.Component {
                     </span>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Log Out</a>
+                    <a className="nav-link" href="#" onClick={this.props.handleLogout}>Log Out</a>
                   </li>
                 </ul>
                 <SearchBar handleSearch={this.props.handleSearch}/>
@@ -39,10 +42,10 @@ class Header extends React.Component {
               <div className="collapse navbar-right navbar-collapse" id="navbarText">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Sign Up</a>
+                    <Link to="/signupUser" className="nav-link" href="#">Sign Up</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Log In</a>
+                    <Link to="/loginUser" className="nav-link" href="#">Log In</Link>
                   </li>
                 </ul>
                 <SearchBar handleSearch={this.props.handleSearch}/>
@@ -54,5 +57,3 @@ class Header extends React.Component {
     }
   }
 }
-
-export default Header;
