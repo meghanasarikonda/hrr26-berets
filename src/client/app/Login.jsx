@@ -51,6 +51,7 @@ class Login extends React.Component {
                 <label>password</label>
                 <input type="password" name="password" value={this.state.password} onChange={this.handlePassword} required/>
               </form>
+              <a href="/auth/google">Sign In with Google</a>
               <div className="login-form-button">
                 <FlatButton
                   label="Submit"
