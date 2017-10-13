@@ -28,6 +28,7 @@ class Main extends Component {
     this.saveList = this.saveList.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleListChange = this.handleListChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.getmyList = this.getmyList.bind(this);
     this.getFeaturedList = this.getFeaturedList.bind(this);
     this.getCatalog = this.getCatalog.bind(this);
