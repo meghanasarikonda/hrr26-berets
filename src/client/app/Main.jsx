@@ -351,7 +351,6 @@ class Main extends Component {
             <div className="col-md-3">
             </div>
             <div className="col-md-6" id="whitebox-popular">
-              <br />
               <h3>Popular Items</h3>
               <PopularItems
                 products={this.state.popular}
@@ -362,7 +361,7 @@ class Main extends Component {
             <div className="col-md-3">
               {/* User's current shopping list */}
               <div className="row">
-                { ShoppingContainer}
+                {ShoppingContainer}
               </div>
             </div>
           </div><br />
