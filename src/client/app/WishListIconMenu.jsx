@@ -21,8 +21,6 @@ const WishListIconMenu = (props) => (
       <MenuItem primaryText="Email Wish List" />
       <Divider />
       <AlertToRemoveList removeList={props.removeList}/>
-      <MenuItem primaryText="Help" />
-      <MenuItem primaryText="Sign out" />
     </IconMenu>
   </div>
 );
