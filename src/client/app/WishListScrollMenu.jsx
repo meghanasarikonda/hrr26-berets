@@ -13,7 +13,7 @@ const WishListScrollMenu = (props) => (
     anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
     targetOrigin={{horizontal: 'left', vertical: 'top'}}
     maxHeight={168}
-    onChange={(e) => { console.log(e.target.value); }}
+    onChange={(e, data) => { props.handleChange(data); props.setName(); }}
   >
 
     {props.myList.map((list, index) => {
