@@ -6,6 +6,7 @@ import Signup from './Signup.jsx';
 import Login from './Login.jsx';
 import ProductDetails from './ProductDetails.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+//import LoggedIn from './LoggedIn.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class App extends React.Component {
     this.handleSignUp = this.handleSignUp.bind(this);
     this.handleLogIn = this.handleLogIn.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
+    this.login = this.login.bind(this);
     this.state = {
       loggedIn: false,
       user: ''
@@ -35,7 +37,8 @@ class App extends React.Component {
   }
 
   handleLogIn(user) {
-    if (user !== 'fromGoogle') {
+    console.log('user', user);
+    if (user !== undefined) {
       axios.post('/login', user)
         .then((res) => {
           this.setState({
@@ -46,14 +49,33 @@ class App extends React.Component {
         .catch((err) => {
           console.log(err);
         });
-    } else {
-      if (user === 'fromGoogle') {
-        this.setState({
-          loggedIn: true,
-          username: 'meghana@gmail.com'
-        });
-      }
     }
+
+    //   console.log('inElse')
+    //   axios.get('/auth/google', {
+    //     params: {
+    //       id: 1
+    //     }
+    //     })
+    //     .then(res => {
+    //       alert(res)
+    //       this.setState({
+    //         loggedIn: true
+    //       })
+    //     })
+    //     .catch(err => {
+    //       console.log('error')
+    //     })
+
+    // }
+    //}
+  }
+
+  login(username) {
+    this.setState({
+      loggedIn: true,
+      user: username
+    });
   }
 
   handleLogOut() {
@@ -79,6 +101,7 @@ class App extends React.Component {
               <Route exact path="/signupUser" render={(props) => (<Signup loggedIn={this.state.loggedIn} handleSignUp={this.handleSignUp} {...props}/>)} />
               <Route exact path="/loginUser" render={(props) => (<Login handleLogIn={this.handleLogIn} loggedIn={this.state.loggedIn} {...props}/>)} />
               <Route exact path="/productDetails" render={(props) => (<ProductDetails {...props}/>)} />
+              <Route exact path="/loggedIn/:userName" render={(props) => (<Login login={this.login} loggedIn={this.state.loggedIn} {...props}/>)}/>
 
             </Switch>
           </Router>
