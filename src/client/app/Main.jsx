@@ -370,6 +370,10 @@ class Main extends Component {
           {/* Popular items retrieved from Walmart's 'Trending' api */}
           <div className="row">
             <div className="col-md-3">
+              <StoreSearch handleStoreSearch={this.handleStoreSearch}/>
+              <div className="row">
+                {StoreResultsContainer}
+              </div>
             </div>
             <div className="col-md-6" id="whitebox-popular">
               <h3>Popular Items</h3>
@@ -389,12 +393,6 @@ class Main extends Component {
           {/* Search results render here */}
           <div className="row">
             {SearchResultsContainer}
-          </div>
-          <div className="row">
-            <StoreSearch handleStoreSearch={this.handleStoreSearch}/>
-          </div>
-          <div className="row">
-            {StoreResultsContainer}
           </div>
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
