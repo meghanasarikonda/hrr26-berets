@@ -16,8 +16,8 @@ const WishListIconMenu = (props) => (
   <div className="clear-icon">
     <IconMenu
       iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-      anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-      targetOrigin={{horizontal: 'left', vertical: 'top'}}
+      anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+      targetOrigin={{horizontal: 'right', vertical: 'top'}}
     >
       <WishListScrollMenu myList={props.myList} handleChange={props.handleChange} setName={props.setName}/>
       <NewListModal newList={props.newList} />

@@ -11,7 +11,7 @@ const WishListScrollMenu = (props) => (
   <IconMenu
     iconButtonElement={<MenuItem primaryText="Select Another List" />}
     anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-    targetOrigin={{horizontal: 'left', vertical: 'top'}}
+    targetOrigin={{horizontal: 'right', vertical: 'top'}}
     maxHeight={168}
     onChange={(e, data) => { props.handleChange(data); props.setName(); }}
   >
