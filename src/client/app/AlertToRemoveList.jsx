@@ -48,9 +48,9 @@ export default class AlertToRemoveList extends React.Component {
     ];
 
     return (
-      <div>
+      <div className="clear-icon">
         <IconButton>
-          <i className="clear-icon material-icons" onClick={this.handleOpen}>clear</i>
+          <i className="material-icons" onClick={this.handleOpen}>clear</i>
         </IconButton>
         <Dialog
           actions={actions}

@@ -307,7 +307,7 @@ class Main extends Component {
     let ShoppingContainer = <div>Log in to see your lists!</div>;
     if (this.props.loggedIn) {
       ShoppingContainer = (
-        <div className="container">
+        <div>
           <ShoppingList
             currentListName={this.state.currentListName}
             list={this.state.currentList}

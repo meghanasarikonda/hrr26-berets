@@ -124,8 +124,13 @@ body {
   background-color: #F9EDBE;
 }
 
+.wish-list {
+  display:inline-block;
+}
+
 .clear-icon {
   float: right;
+  transform: translateY(-10px) translateX(7px);
 }
 
 .row {
