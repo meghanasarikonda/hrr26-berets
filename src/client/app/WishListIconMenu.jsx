@@ -6,6 +6,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Divider from 'material-ui/Divider';
 import AlertToRemoveList from './AlertToRemoveList.jsx';
 import NewListModal from './NewListModal.jsx';
+import WishListScrollMenu from './WishListScrollMenu.jsx';
 
 /**
  * Simple Icon Menus demonstrating some of the layouts possible using the `anchorOrigin` and
@@ -15,9 +16,10 @@ const WishListIconMenu = (props) => (
   <div className="clear-icon">
     <IconMenu
       iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-      anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-      targetOrigin={{horizontal: 'right', vertical: 'top'}}
+      anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+      targetOrigin={{horizontal: 'left', vertical: 'top'}}
     >
+      <WishListScrollMenu myList={props.myList} handleChange={props.handleChange} setName={props.setName}/>
       <NewListModal newList={props.newList} />
       <MenuItem primaryText="Email Wish List" />
       <Divider />

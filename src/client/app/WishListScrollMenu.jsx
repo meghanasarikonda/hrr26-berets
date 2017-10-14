@@ -7,18 +7,26 @@ import MapsPlace from 'material-ui/svg-icons/maps/place';
 /**
  * The `maxHeight` property limits the height of the menu, above which it will be scrollable.
  */
-const IconMenuExampleScrollable = () => (
+const WishListScrollMenu = (props) => (
   <IconMenu
-    iconButtonElement={<IconButton><MapsPlace /></IconButton>}
+    iconButtonElement={<MenuItem primaryText="Select Another List" />}
     anchorOrigin={{horizontal: 'left', vertical: 'top'}}
     targetOrigin={{horizontal: 'left', vertical: 'top'}}
-    maxHeight={272}
+    maxHeight={150}
   >
+
+    {props.myList.map((list, index) => {
+      return (<MenuItem key={index} value={list} primaryText={list} />);
+    })}
+    <MenuItem value="AL" primaryText="Alabama" />
+    <MenuItem value="AK" primaryText="Alaska" />
+    <MenuItem value="AZ" primaryText="Arizona" />
     <MenuItem value="AL" primaryText="Alabama" />
     <MenuItem value="AK" primaryText="Alaska" />
     <MenuItem value="AZ" primaryText="Arizona" />
 
+
   </IconMenu>
 );
 
-export default IconMenuExampleScrollable;
+export default WishListScrollMenu;
