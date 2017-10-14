@@ -159,15 +159,13 @@ h3.wish-list-name:hover {
 }
 
 .create-wish-list-button {
-  margin-right: 25px;
+  margin: 0px 40px 10px 20px;
+  margin-right: 40px;
   display: inline-block;
+  margin-bottom: 10px;
 }
 
 .email-button {
   float: right;
   display: inline-block;
-}
-
-.row {
-  border: 1px solid green;
 }
