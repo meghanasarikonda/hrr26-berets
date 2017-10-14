@@ -20,8 +20,6 @@ const WishListIconMenu = (props) => (
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
     >
       <WishListScrollMenu myList={props.myList} handleChange={props.handleChange} setName={props.setName}/>
-      <NewListModal newList={props.newList} />
-      <MenuItem primaryText="Email Wish List" />
       <Divider />
       <AlertToRemoveList removeList={props.removeList}/>
     </IconMenu>

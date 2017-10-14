@@ -59,15 +59,14 @@ export default class ShoppingList extends Component {
     this.setState({ renaming: false });
   }
 
-  changeName() {
-    var name = this.state.listName;
+  changeName(name) {
     this.props.handleRenameList(name);
     this.setState({ renaming: false });
   }
 
   handleEnterKeyPress(e) {
     if (e.key === 'Enter') {
-      this.changeName();
+      this.changeName(e.target.value);
     }
   }
 
@@ -81,12 +80,12 @@ export default class ShoppingList extends Component {
     const { list } = this.props;
     if (this.props.myList || this.props.list) {
       return (
-        <div className="list-tools">
+        <div >
           {
             (this.state.renaming)
               ?
               <h3>
-                <input className="wish-list wish-list-shift" autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
+                <input className="wish-list wish-list-shift" autoFocus onFocus={this.moveCursorToEnd} onBlur={(e) => this.changeName(e.target.value)} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
                 <WishListIconMenu removeList={this.props.removeList} newList={this.props.newList} myList={this.props.myList} handleChange={this.handleChange} setName={this.setName}/>
               </h3>
               :

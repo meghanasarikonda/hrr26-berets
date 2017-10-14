@@ -5,6 +5,7 @@ import 'react-select/dist/react-select.css';
 import Snackbar from 'material-ui/Snackbar';
 import RaisedButton from 'material-ui/RaisedButton';
 import EmailSnackBar from './EmailSnackBar.jsx';
+import NewListModal from './NewListModal.jsx';
 
 class ShoppingListEntry extends Component {
 
@@ -24,8 +25,13 @@ class ShoppingListEntry extends Component {
   render() {
     return (
       <div>
+        <div className="container">
+          <div className="row">
+            <NewListModal newList={this.props.newList} />
+            <EmailSnackBar sendList={this.props.sendList} />
+          </div>
+        </div>
         <div>
-          <EmailSnackBar sendList={this.props.sendList} />
         </div>
         <div>
           {this.props.shoppingList.map(product =>

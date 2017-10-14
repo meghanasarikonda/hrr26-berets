@@ -34,6 +34,7 @@ export default class EmailSnackBar extends Component {
             this.handleTouchTap
           }
           label="Email List"
+          className="email-button"
         />
         <Snackbar
           open={this.state.open}

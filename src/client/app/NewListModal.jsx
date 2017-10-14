@@ -70,7 +70,7 @@ class NewListModal extends React.Component {
 
     return (
       <div>
-        <MenuItem primaryText="Create Wish List" onClick={this.handleOpen}/>
+        <RaisedButton onClick={this.handleOpen} label="Create Wish List" className="create-wish-list-button"/>
         <Dialog
           title="Create new wish list"
           actions={actions}
