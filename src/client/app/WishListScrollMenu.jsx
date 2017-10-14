@@ -10,9 +10,9 @@ import MapsPlace from 'material-ui/svg-icons/maps/place';
 const WishListScrollMenu = (props) => (
   <IconMenu
     iconButtonElement={<MenuItem primaryText="Select Another List" />}
-    anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+    anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
     targetOrigin={{horizontal: 'left', vertical: 'top'}}
-    maxHeight={150}
+    maxHeight={168}
   >
 
     {props.myList.map((list, index) => {
