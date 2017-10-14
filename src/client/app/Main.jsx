@@ -377,7 +377,7 @@ class Main extends Component {
               {SearchResultsContainer}
             </div>
             <div className="col-md-2">
-            </div>
+            </div> <br />
           </div>
           {/* Popular items retrieved from Walmart's 'Trending' api */}
           <div className="row">
