@@ -385,9 +385,7 @@ class Main extends Component {
             </div>
             <div className="col-md-3">
               {/* User's current shopping list */}
-              <div className="row">
-                {ShoppingContainer}
-              </div>
+              {ShoppingContainer}
             </div>
           </div><br />
           {/* Search results render here */}

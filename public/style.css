@@ -146,6 +146,7 @@ h3.wish-list-name:hover {
 
 .clear-icon {
   float: right;
+  position: static;
   transform: translateY(-10px) translateX(7px);
 }
 
@@ -155,9 +156,11 @@ h3.wish-list-name:hover {
 
 .create-wish-list-button {
   margin-right: 25px;
+  display: inline-block;
 }
 
 .email-button {
+  float: right;
   display: inline-block;
 }
 

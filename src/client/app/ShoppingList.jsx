@@ -4,6 +4,8 @@ import ShoppingListEntry from './ShoppingListEntry.jsx';
 import IconButton from 'material-ui/IconButton';
 import AlertToRemoveList from './AlertToRemoveList.jsx';
 import WishListIconMenu from './WishListIconMenu.jsx';
+import EmailSnackBar from './EmailSnackBar.jsx';
+import NewListModal from './NewListModal.jsx';
 
 export default class ShoppingList extends Component {
   constructor(props) {
@@ -85,8 +87,8 @@ export default class ShoppingList extends Component {
             (this.state.renaming)
               ?
               <h3>
-                <input className="wish-list wish-list-shift" autoFocus onFocus={this.moveCursorToEnd} onBlur={(e) => this.changeName(e.target.value)} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
-                <WishListIconMenu removeList={this.props.removeList} newList={this.props.newList} myList={this.props.myList} handleChange={this.handleChange} setName={this.setName}/>
+                <input size="18" className="wish-list" autoFocus onFocus={this.moveCursorToEnd} onBlur={(e) => this.changeName(e.target.value)} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
+                <WishListIconMenu className="wish-list" removeList={this.props.removeList} newList={this.props.newList} myList={this.props.myList} handleChange={this.handleChange} setName={this.setName}/>
               </h3>
               :
               <div>
@@ -96,6 +98,12 @@ export default class ShoppingList extends Component {
                 <WishListIconMenu removeList={this.props.removeList} newList={this.props.newList} myList={this.props.myList} handleChange={this.handleChange} setName={this.setName}/>
               </div>
           }
+          <div className="container">
+            <div className="row">
+              <NewListModal newList={this.props.newList} />
+              <EmailSnackBar sendList={this.props.sendList} />
+            </div>
+          </div>
           <ShoppingListEntry
             myList={this.props.myList}
             shoppingList={this.props.list}
