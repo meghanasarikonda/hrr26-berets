@@ -65,8 +65,6 @@ class Login extends React.Component {
   //});
   }
 
-
-
   render() {
     console.log('this.props', this.props);
     if (this.props.loggedIn) {
@@ -81,6 +79,8 @@ class Login extends React.Component {
         <div>
           <div className="wrapper login-forms-container">
             <div className="login-forms">
+              <br />
+              <br />
               <h1>LOGIN</h1>
               <form onSubmit={this.logIn}>
                 <label>email</label>
@@ -88,6 +88,7 @@ class Login extends React.Component {
                 <input type="email" placeholder="name@example.com" onChange={this.handleUsername} value={this.state.username} required/>
                 <br />
                 <label>password</label>
+                <br />
                 <input type="password" name="password" value={this.state.password} onChange={this.handlePassword} required/>
               </form>
               <div className="login-form-button">
@@ -100,6 +101,8 @@ class Login extends React.Component {
                 />
               </div>
               <a href='/auth/google'>Sign In with Google</a>
+              <br />
+              <br />
             </div>
           </div>
         </div>

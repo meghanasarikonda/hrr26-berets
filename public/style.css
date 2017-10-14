@@ -2,6 +2,31 @@ body {
   background-color: #d9e8f7;
 }
 
+h3 {
+  font-family: monospace;
+  font-size: 25px;
+  text-align: center;
+}
+
+h2 {
+  font-family: monospace;
+  font-size: 25px;
+  text-align: center;
+}
+
+.featured {
+  font-size: 20px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.searchContainer {
+  background-color: white;
+}
+
+.shoppingContainer {
+  background-color: white;
+}
 .wrapper {
   display: grid;
   grid-gap: 10px;
@@ -16,18 +41,18 @@ body {
 }
 
 .wrapper form {
-  min-height: 100px;
-  width: 200px;
-  margin: 0 auto;
+  min-height: 180px;
+  width: 400px;
+  margin: 40px auto;
 }
 
 .login-forms-container {
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .login-forms {
-  min-height: 220px;
-  max-width: 320px;
+  min-height: 300;
+  max-width: 4300px;
   border: 2px solid black;
   -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
@@ -38,11 +63,12 @@ body {
   text-align: center;
   margin: 0 auto;
   font-family: monospace;
-  width: 400px;
+  width: 330px;
   height: 40px;
 }
 
 .searchBtn {
+  width: 330px;
 
 }
 
@@ -58,23 +84,32 @@ body {
 }
 
 #FL-Container {
-  width: 1000px;
-  padding: 5px;
-  margin: 20px auto;
+  width: 2000px;
+  padding: 30px;
+  margin: 5px auto;
+  font-family: monospace;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+
 }
 
 #whitebox-popular {
   background-color: white;
-  border-radius: 10px;
   width: 100%;
+  text-align: center;
 }
 
 .FL-col1 {
   width: 200px;
   float: left;
-  padding: 5px 15px;
+  padding-top: 5px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  text-align: center
 }
-
 
 .aligning{
   text-align: center;

@@ -48,9 +48,11 @@ function(accessToken, refreshToken, profile, done) {
     if (user) {
       return done(null, user);
     } else {
+      let obj = { 'My WishList': [] };
       var newUser = new User();
       // newUser.google.username = profile.emails[0].value;
       newUser.username = profile.emails[0].value;
+      newUser.shoppingList = obj;
       console.log('newUser', newUser);
       passport.serializeUser(function(user, done) {
         done(null, user._id);

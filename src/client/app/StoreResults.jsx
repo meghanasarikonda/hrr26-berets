@@ -9,7 +9,7 @@ class StoreResults extends Component {
   render() {
     return (
       <div>
-        <h3>Store Results</h3>
+        <h2 className="store">Stores Near You: </h2>
         {this.props.results.map((result) => {
           return (
             <StoreResultsItem
