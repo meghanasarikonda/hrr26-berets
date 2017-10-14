@@ -41,6 +41,8 @@ class Signup extends React.Component {
         <div>
           <div className="wrapper login-forms-container">
             <div className="login-forms">
+              <br />
+              <br />
               <h1>SIGN UP</h1>
               <form onSubmit={this.handleSignUp}>
                 <label>email</label>
@@ -48,6 +50,7 @@ class Signup extends React.Component {
                 <input type="email" placeholder="name@example.com" onChange={this.handleUsername} value={this.state.username} required/>
                 <br />
                 <label>password</label>
+                <br />
                 <input type="password" name="password" value={this.state.password} onChange={this.handlePassword} required/>
               </form>
               <div className="login-form-button">
@@ -58,6 +61,8 @@ class Signup extends React.Component {
                     this.signUp();
                   }}
                 />
+                <br />
+                <br />
               </div>
             </div>
           </div>
