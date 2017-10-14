@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
+import MenuItem from 'material-ui/MenuItem';
 
 /**
  * Alerts are urgent interruptions, requiring acknowledgement, that inform the user about a situation.
@@ -49,9 +50,7 @@ export default class AlertToRemoveList extends React.Component {
 
     return (
       <div>
-        <IconButton>
-          <i className="clear-icon material-icons" onClick={this.handleOpen}>clear</i>
-        </IconButton>
+        <MenuItem primaryText="Delete Wish List" onClick={this.handleOpen}/>
         <Dialog
           actions={actions}
           modal={false}

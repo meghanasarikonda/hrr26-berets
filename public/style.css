@@ -136,6 +136,19 @@ body {
   background-color: #F9EDBE;
 }
 
+.wish-list {
+  display:inline-block;
+}
+
+.wish-list-shift {
+  transform: translateX(12px)
+}
+
 .clear-icon {
   float: right;
+  transform: translateY(-10px) translateX(7px);
+}
+
+.container-fluid {
+  padding: 0px 200px;
 }

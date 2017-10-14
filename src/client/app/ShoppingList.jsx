@@ -3,6 +3,7 @@ import ListItem from './ListItem.jsx';
 import ShoppingListEntry from './ShoppingListEntry.jsx';
 import IconButton from 'material-ui/IconButton';
 import AlertToRemoveList from './AlertToRemoveList.jsx';
+import WishListIconMenu from './WishListIconMenu.jsx';
 
 export default class ShoppingList extends Component {
   constructor(props) {
@@ -79,36 +80,35 @@ export default class ShoppingList extends Component {
     const { list } = this.props;
     if (this.props.myList || this.props.list) {
       return (
-        <div>
-          <div className="list-tools">
-            {
-              (this.state.renaming)
-                ?
-                <h3>
-                  <input autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
-                  <AlertToRemoveList removeList={this.props.removeList}/>
+        <div className="list-tools">
+          {
+            (this.state.renaming)
+              ?
+              <h3 className="wish-list wish-list-shift">
+                <input autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
+                <WishListIconMenu removeList={this.props.removeList}/>
+
+              </h3>
+              :
+              <div>
+                <h3 className="wish-list wish-list-name" onClick={this.handleRename}>
+                  {this.props.currentListName}
                 </h3>
-                :
-                <div>
-                  <h3>
-                    <span className="wish-list-name" onClick={this.handleRename}>{this.props.currentListName}</span>
-                  </h3>
-                  <AlertToRemoveList removeList={this.props.removeList}/>
-                </div>
-            }
-            <ShoppingListEntry
-              myList={this.props.myList}
-              shoppingList={this.props.list}
-              removeItem={this.props.removeItem}
-              handleChange={this.handleChange}
-              setName={this.setName}
-              currentListName={this.props.currentListName}
-              newList={this.props.newList}
-              saveList={this.props.saveList}
-              removeList={this.props.removeList}
-              sendList={this.props.sendList}
-            />
-          </div>
+                <WishListIconMenu removeList={this.props.removeList}/>
+              </div>
+          }
+          <ShoppingListEntry
+            myList={this.props.myList}
+            shoppingList={this.props.list}
+            removeItem={this.props.removeItem}
+            handleChange={this.handleChange}
+            setName={this.setName}
+            currentListName={this.props.currentListName}
+            newList={this.props.newList}
+            saveList={this.props.saveList}
+            removeList={this.props.removeList}
+            sendList={this.props.sendList}
+          />
         </div>
       );
     }

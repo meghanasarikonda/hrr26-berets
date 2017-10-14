@@ -155,7 +155,8 @@ exports.getTrending = (req, res) => {
           image: item.thumbnailImage,
           itemId: item.itemId,
           price: item.salePrice,
-          url: item.productUrl
+          url: item.productUrl,
+          rating: item.customerRatingImage
         };
       });
       res.json(items);

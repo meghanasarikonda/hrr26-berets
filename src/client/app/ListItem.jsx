@@ -57,7 +57,7 @@ class ListItem extends Component {
           }
         </div>
         <div className={vertical ? '' : 'col-sm-2'}>
-          <a href={item.url} target="_blank" className="btn btn-primary btn-block">Buy it Now!</a><br /><br /><p/>
+          <a href={item.url} target="_blank" className="btn btn-primary">Buy it Now!</a><br /><br /><p/>
         </div>
       </div>
     );

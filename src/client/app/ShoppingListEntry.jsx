@@ -25,8 +25,7 @@ class ShoppingListEntry extends Component {
   render() {
     return (
       <div>
-        <EmailSnackBar sendList={this.props.sendList} />
-        <div className="col-xs-4">
+        <div>
           { (this.props.myList) ?
             <span>
               <select className="form-control" onChange={this.handleListChange} value={this.props.currentListName}>
@@ -42,8 +41,9 @@ class ShoppingListEntry extends Component {
           <div style={{'marginTop': '5px', 'marginBottom': '10px'}}>
             <NewListModal newList={this.props.newList} />
           </div>
+          <EmailSnackBar sendList={this.props.sendList} />
         </div>
-        <div className="col-xs-12">
+        <div>
           {this.props.shoppingList.map(product =>
             <ListItem
               isInList={true}
