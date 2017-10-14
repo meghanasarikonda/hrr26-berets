@@ -127,3 +127,11 @@ body {
 .clear-icon {
   float: right;
 }
+
+.row {
+  border: 1px solid green;
+}
+
+.container-fluid {
+  padding: 0px 200px;
+}

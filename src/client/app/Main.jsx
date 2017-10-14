@@ -266,28 +266,28 @@ class Main extends Component {
   }
 
   render() {
-    let PopularItemsContainer = (
-      <div className="col-xs-12">
-        <br />
-        <h3> Popular Items</h3>
-        <div>Loading Popular Items...</div><br />
-      </div>
-    );
-    if (this.state.popular.length) {
-      PopularItemsContainer = (
-        // <div id='whitebox-popular'>
-        <div className="col-xs-12" id="whitebox-popular">
-          <br />
-          <h3>Popular Items</h3>
-          <PopularItems
-            products={this.state.popular}
-            addToList={this.handleAddToList}
-            removeItem={this.handleRemoveFromList}
-            currentList={this.state.currentList}/>
-        </div>
-        // </div>
-      );
-    }
+    // let PopularItemsContainer = (
+    //   <div className="col-xs-12">
+    //     <br />
+    //     <h3> Popular Items</h3>
+    //     <div>Loading Popular Items...</div><br />
+    //   </div>
+    // );
+    // if (this.state.popular.length) {
+    //   PopularItemsContainer = (
+    //     // <div id='whitebox-popular'>
+    //     <div className="col-xs-12" id="whitebox-popular">
+    //       <br />
+    //       <h3>Popular Items</h3>
+    //       <PopularItems
+    //         products={this.state.popular}
+    //         addToList={this.handleAddToList}
+    //         removeItem={this.handleRemoveFromList}
+    //         currentList={this.state.currentList}/>
+    //     </div>
+    //     // </div>
+    //   );
+    // }
 
     let SearchResultsContainer = null;
     if (this.state.searchResults.length) {
@@ -307,7 +307,7 @@ class Main extends Component {
     let ShoppingContainer = <div>Log in to see your lists!</div>;
     if (this.props.loggedIn) {
       ShoppingContainer = (
-        <div className="col-xs-12">
+        <div className="container">
           <ShoppingList
             currentListName={this.state.currentListName}
             list={this.state.currentList}
@@ -344,11 +344,27 @@ class Main extends Component {
     return (
       <div>
         <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut}/>
-        <div className="container">
+        <div className="container-fluid">
           <br />
           {/* Popular items retrieved from Walmart's 'Trending' api */}
           <div className="row">
-            {PopularItemsContainer}
+            <div className="col-md-3">
+            </div>
+            <div className="col-md-6" id="whitebox-popular">
+              <br />
+              <h3>Popular Items</h3>
+              <PopularItems
+                products={this.state.popular}
+                addToList={this.handleAddToList}
+                removeItem={this.handleRemoveFromList}
+                currentList={this.state.currentList}/>
+            </div>
+            <div className="col-md-3">
+              {/* User's current shopping list */}
+              <div className="row">
+                { ShoppingContainer}
+              </div>
+            </div>
           </div><br />
           {/* Search results render here */}
           <div className="row">
@@ -357,10 +373,6 @@ class Main extends Component {
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
             {FeaturedListContainer}
-          </div>
-          {/* User's current shopping list */}
-          <div className="row">
-            { ShoppingContainer}
           </div>
         </div>
       </div>
