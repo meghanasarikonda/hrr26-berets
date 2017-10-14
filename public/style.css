@@ -41,18 +41,18 @@ h2 {
 }
 
 .wrapper form {
-  min-height: 100px;
-  width: 200px;
-  margin: 0 auto;
+  min-height: 180px;
+  width: 400px;
+  margin: 40px auto;
 }
 
 .login-forms-container {
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .login-forms {
-  min-height: 220px;
-  max-width: 320px;
+  min-height: 300;
+  max-width: 4300px;
   border: 2px solid black;
   -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
