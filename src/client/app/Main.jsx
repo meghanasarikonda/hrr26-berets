@@ -10,6 +10,8 @@ import ShoppingList from './ShoppingList.jsx';
 import { Route, Link, Redirect, Switch, BrowserRouter as Router } from 'react-router-dom';
 import request from 'superagent';
 import Header from './Header.jsx';
+import StoreSearch from './StoreSearch.jsx';
+import StoreResults from './StoreResults.jsx';
 
 class Main extends Component {
   constructor(props) {
@@ -22,7 +24,8 @@ class Main extends Component {
       currentListName: '',
       catalog: {},
       myList: [],
-      shoppingList: {}
+      shoppingList: {},
+      storeResults: [],
     };
 
     this.handleAddToList = this.handleAddToList.bind(this);
@@ -32,6 +35,7 @@ class Main extends Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleListChange = this.handleListChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleStoreSearch = this.handleStoreSearch.bind(this);
     this.getmyList = this.getmyList.bind(this);
     this.getFeaturedList = this.getFeaturedList.bind(this);
     this.getCatalog = this.getCatalog.bind(this);
@@ -114,6 +118,10 @@ class Main extends Component {
 
   handleSearch(products) {
     this.setState({ searchResults: products });
+  }
+
+  handleStoreSearch(stores) {
+    this.setState({ storeResults: stores });
   }
 
   handleAddToList(item) {
@@ -304,6 +312,19 @@ class Main extends Component {
       );
     }
 
+    let StoreResultsContainer = null;
+    if (this.state.storeResults.length) {
+      StoreResultsContainer = (
+        <div className="col-xs-12">
+          <StoreResults
+            results={this.state.storeResults}/>
+          <br />
+          <br />
+        </div>
+      );
+    }
+
+
     let ShoppingContainer = <div>Log in to see your lists!</div>;
     if (this.props.loggedIn) {
       ShoppingContainer = (
@@ -331,7 +352,7 @@ class Main extends Component {
     if (Object.keys(this.state.catalog).length === 4) {
       FeaturedListContainer = (
         <div className="col-xs-12">
-          <br /> <h3>Featured WishLists</h3>
+          <br /> <h3>Featured Items</h3>
           <FeaturedLists
             list={this.state.catalog}
             addToList={this.handleAddToList}
@@ -354,14 +375,21 @@ class Main extends Component {
           <div className="row">
             {SearchResultsContainer}
           </div>
+          <div className="row">
+            <StoreSearch handleStoreSearch={this.handleStoreSearch}/>
+          </div>
+          <div className="row">
+            {StoreResultsContainer}
+          </div>
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
             {FeaturedListContainer}
           </div>
           {/* User's current shopping list */}
           <div className="row">
-            { ShoppingContainer}
+            {ShoppingContainer}
           </div>
+
         </div>
       </div>
     );

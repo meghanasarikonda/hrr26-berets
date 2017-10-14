@@ -34,6 +34,18 @@ body {
   position: center;
 }
 
+.searchBar {
+  text-align: center;
+  margin: 0 auto;
+  font-family: monospace;
+  width: 400px;
+  height: 40px;
+}
+
+.searchBtn {
+
+}
+
 #title {
   color: #224153;
 }

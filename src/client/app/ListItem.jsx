@@ -13,7 +13,6 @@ class ListItem extends Component {
     this.handleItemClick = this.handleItemClick.bind(this);
   }
 
-
   handleRemove() {
     let itemId = this.props.item.itemId;
     this.props.removeItem(itemId);

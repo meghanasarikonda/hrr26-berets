@@ -535,3 +535,34 @@ exports.sendList = (req, res) => {
     }
   });
 };
+
+exports.getStores = (req, res) => {
+  console.log(req.query.query);
+  let query = req.query.query;
+  let options = {
+    uri: 'http://api.walmartlabs.com/v1/stores?format=json&zip=' + query,
+    qs: {
+      apiKey: walmartKey,
+      format: 'json'
+    },
+    json: true
+  };
+  rp(options)
+    .then((result) => {
+      let items = result.slice(0, 5).map(item => {
+        return {
+          name: item.name,
+          streetAddress: item.streetAddress,
+          city: item.city,
+          state: item.stateProvCode,
+          zipcode: item.zip,
+          phone: item.phoneNumber
+        };
+      });
+      console.log(items);
+      res.json(items);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
