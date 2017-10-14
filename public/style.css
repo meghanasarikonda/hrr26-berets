@@ -140,8 +140,12 @@ h3.wish-list-name:hover {
   display:inline-block;
 }
 
-.wish-list-shift {
-  transform: translateX(12px)
+.wish-list-name {
+  padding-bottom: 10px;
+}
+
+.wish-list-edit {
+  margin-bottom: 4px;
 }
 
 .clear-icon {
