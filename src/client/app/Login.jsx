@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Dialog from 'material-ui/Dialog';
@@ -12,9 +13,15 @@ class Login extends React.Component {
       username: '',
       password: ''
     };
+    if (this.props.match.params.userName) {
+      this.props.login(this.props.match.params.userName);
+
+    }
     this.logIn = this.logIn.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
+    this.func = this.func.bind(this);
+    this.googleLogIn = this.googleLogIn.bind(this);
   }
 
   logIn(e) {
@@ -25,6 +32,12 @@ class Login extends React.Component {
 
   }
 
+  googleLogIn(e) {
+    e.preventDefault();
+    alert('hhhh');
+    this.props.handleLogIn();
+  }
+
   handleUsername(e) {
     this.setState({ username: e.target.value });
   }
@@ -33,10 +46,36 @@ class Login extends React.Component {
     this.setState({ password: e.target.value });
   }
 
+  func(e) {
+
+    console.log('cool');
+    this.props.handleLogIn();
+    //e.preventDefault()
+    // console.log('axios', axios)
+  // axios.get('/auth/google', {
+  //   params: {
+  //     name: 'meghana'
+  //   }
+  // })
+  // .then(function (response) {
+  //   console.log('response', response);
+  // })
+  // .catch(function (error) {
+  //   console.log('error in loginjsx');
+  //});
+  }
+
+
+
   render() {
+    console.log('this.props', this.props);
     if (this.props.loggedIn) {
       return <Redirect to='/'/>;
     }
+    // if (this.props.match.params.userName) {
+    //   this.props.login();
+    //   return <Redirect to='/'/>;
+    // }
     return (
       <MuiThemeProvider>
         <div>
@@ -51,7 +90,6 @@ class Login extends React.Component {
                 <label>password</label>
                 <input type="password" name="password" value={this.state.password} onChange={this.handlePassword} required/>
               </form>
-              <a href="/auth/google">Sign In with Google</a>
               <div className="login-form-button">
                 <FlatButton
                   label="Submit"
@@ -61,6 +99,7 @@ class Login extends React.Component {
                   }}
                 />
               </div>
+              <a href='/auth/google'>Sign In with Google</a>
             </div>
           </div>
         </div>
