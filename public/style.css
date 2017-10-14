@@ -167,7 +167,7 @@ h2 {
   font-size: 16px;
 }
 
-.wish-list-name:hover {
+h3.wish-list-name:hover {
   background-color: #F9EDBE;
 }
 
@@ -175,15 +175,32 @@ h2 {
   display:inline-block;
 }
 
-.wish-list-shift {
-  transform: translateX(12px)
+.wish-list-name {
+  padding-bottom: 10px;
+}
+
+.wish-list-edit {
+  margin-bottom: 4px;
 }
 
 .clear-icon {
   float: right;
+  position: static;
   transform: translateY(-10px) translateX(7px);
 }
 
 .container-fluid {
   padding: 0px 200px;
+}
+
+.create-wish-list-button {
+  margin: 0px 40px 20px 20px;
+  margin-right: 40px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.email-button {
+  float: right;
+  display: inline-block;
 }

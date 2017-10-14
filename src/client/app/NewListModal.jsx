@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import MenuItem from 'material-ui/MenuItem';
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.
@@ -69,7 +70,7 @@ class NewListModal extends React.Component {
 
     return (
       <div>
-        <RaisedButton label="Create Wish List" onClick={this.handleOpen} />
+        <RaisedButton onClick={this.handleOpen} label="Create Wish List" className="create-wish-list-button"/>
         <Dialog
           title="Create new wish list"
           actions={actions}

@@ -4,6 +4,8 @@ import ShoppingListEntry from './ShoppingListEntry.jsx';
 import IconButton from 'material-ui/IconButton';
 import AlertToRemoveList from './AlertToRemoveList.jsx';
 import WishListIconMenu from './WishListIconMenu.jsx';
+import EmailSnackBar from './EmailSnackBar.jsx';
+import NewListModal from './NewListModal.jsx';
 
 export default class ShoppingList extends Component {
   constructor(props) {
@@ -26,6 +28,7 @@ export default class ShoppingList extends Component {
   }
 
   handleChange(listName) {
+    console.log(listName);
     this.state.listName = listName;
     if (this.props.shoppingList[listName]) {
       this.state.currentList = this.props.shoppingList[listName];
@@ -58,15 +61,14 @@ export default class ShoppingList extends Component {
     this.setState({ renaming: false });
   }
 
-  changeName() {
-    var name = this.state.listName;
+  changeName(name) {
     this.props.handleRenameList(name);
     this.setState({ renaming: false });
   }
 
   handleEnterKeyPress(e) {
     if (e.key === 'Enter') {
-      this.changeName();
+      this.changeName(e.target.value);
     }
   }
 
@@ -80,23 +82,28 @@ export default class ShoppingList extends Component {
     const { list } = this.props;
     if (this.props.myList || this.props.list) {
       return (
-        <div className="list-tools">
+        <div >
           {
             (this.state.renaming)
               ?
-              <h3 className="wish-list wish-list-shift">
-                <input autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
-                <WishListIconMenu removeList={this.props.removeList}/>
-
+              <h3>
+                <input size="18" className="wish-list wish-list-edit" autoFocus onFocus={this.moveCursorToEnd} onBlur={(e) => this.changeName(e.target.value)} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
+                <WishListIconMenu className="wish-list" removeList={this.props.removeList} newList={this.props.newList} myList={this.props.myList} handleChange={this.handleChange} setName={this.setName}/>
               </h3>
               :
               <div>
                 <h3 className="wish-list wish-list-name" onClick={this.handleRename}>
                   {this.props.currentListName}
                 </h3>
-                <WishListIconMenu removeList={this.props.removeList}/>
+                <WishListIconMenu removeList={this.props.removeList} newList={this.props.newList} myList={this.props.myList} handleChange={this.handleChange} setName={this.setName}/>
               </div>
           }
+          <div className="container">
+            <div className="row">
+              <NewListModal newList={this.props.newList} />
+              <EmailSnackBar sendList={this.props.sendList} />
+            </div>
+          </div>
           <ShoppingListEntry
             myList={this.props.myList}
             shoppingList={this.props.list}

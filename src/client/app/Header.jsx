@@ -12,7 +12,7 @@ export default class Header extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <nav className="navbar navbar-expand-sm navbar-light bg-light">
             <div className="container">
               <a className="navbar-brand" href="#">wishList</a>
               <div className="collapse navbar-right navbar-collapse" id="navbarText">
@@ -35,7 +35,7 @@ export default class Header extends React.Component {
     } else {
       return (
         <div>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <nav className="navbar navbar-expand-sm navbar-light bg-light">
             <div className="container">
               <a className="navbar-brand" href="#">wishList</a>
               <div className="collapse navbar-right navbar-collapse" id="navbarText">
