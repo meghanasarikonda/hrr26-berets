@@ -121,6 +121,7 @@ app.get('/feature', handler.cachedWishlist);
 app.get('/search', handler.search);
 app.get('/trending', handler.getTrending);
 app.get('/myLists', handler.retrieveShopping);
+app.get('/zipcodes', handler.getStores);
 
 // handle user authentication
 app.post('/signup', handler.signUpUser);
