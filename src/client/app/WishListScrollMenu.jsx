@@ -19,13 +19,6 @@ const WishListScrollMenu = (props) => (
     {props.myList.map((list, index) => {
       return (<MenuItem key={index} value={list} primaryText={list} />);
     })}
-    <MenuItem value="AL" primaryText="Alabama" />
-    <MenuItem value="AK" primaryText="Alaska" />
-    <MenuItem value="AZ" primaryText="Arizona" />
-    <MenuItem value="AL" primaryText="Alabama" />
-    <MenuItem value="AK" primaryText="Alaska" />
-    <MenuItem value="AZ" primaryText="Arizona" />
-
 
   </IconMenu>
 );

@@ -25,20 +25,6 @@ class ShoppingListEntry extends Component {
     return (
       <div>
         <div>
-          { (this.props.myList) ?
-            <span>
-              <select className="form-control" onChange={this.handleListChange} value={this.props.currentListName}>
-                {this.props.myList.map(list => <option key={list}>{list}</option>)}
-              </select>
-            </span> :
-            <span>
-              <select>
-                <option value="Untitled">Untitled</option>
-              </select>
-            </span>
-          }
-          <div style={{'marginTop': '5px', 'marginBottom': '10px'}}>
-          </div>
           <EmailSnackBar sendList={this.props.sendList} />
         </div>
         <div>
