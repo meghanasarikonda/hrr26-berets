@@ -150,6 +150,10 @@ exports.getTrending = (req, res) => {
   rp(options)
     .then((result) => {
       let items = result.items.slice(0, 5).map(item => {
+        // console.log('item.customerRatingImage', item.customerRatingImage )
+        if (item.customerRatingImage === undefined) {
+          item.customerRatingImage = 'http://i2.walmartimages.com/i/CustRating/0.gif';
+        }
         return {
           name: item.name,
           image: item.thumbnailImage,

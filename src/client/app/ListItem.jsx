@@ -59,6 +59,9 @@ class ListItem extends Component {
         <div className={vertical ? '' : 'col-sm-2'}>
           <a href={item.url} target="_blank" className="btn btn-primary">Buy it Now!</a><br /><br /><p/>
         </div>
+        <div>
+          <img src={item.rating} alt=""/>
+        </div>
       </div>
     );
 
