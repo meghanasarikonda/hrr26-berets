@@ -10,6 +10,8 @@ const nodemailer = require('nodemailer');
 const LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 require('dotenv').config();
+const fs = require('fs');
+
 //console.log('-------->', GoogleStrategy)
 const User = require('../db/models/user');
 const Product = require('../db/models/product');
@@ -35,9 +37,11 @@ passport.use(new GoogleStrategy({
   callbackURL: 'http://localhost:3000/auth/google/callback'
 },
 function(accessToken, refreshToken, profile, done) {
-  console.log('profileid', profile);
-  User.findOne({ googleId: profile.id }, function (err, user) {
-    console.log('hererere');
+  // console.log('profileid1', profile.emails);
+  User.findOne({ 'username': profile.emails[0].value }, function (err, user) {
+    // console.log('profileid2 emails', profile.emails);
+    // console.log('user', user)
+    // console.log('hererere');
     if (err) {
       return done(err);
     }
@@ -45,6 +49,8 @@ function(accessToken, refreshToken, profile, done) {
       return done(null, user);
     } else {
       var newUser = new User();
+      // newUser.google.username = profile.emails[0].value;
+      newUser.username = profile.emails[0].value;
       console.log('newUser', newUser);
       passport.serializeUser(function(user, done) {
         done(null, user._id);
@@ -127,10 +133,29 @@ app.post('/signup', handler.signUpUser);
 app.post('/login', handler.logInUser);
 app.get('/logout', handler.logOutUser);
 app.post('/sendlist', handler.sendList);
-app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/plus.login']}));
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/' })
+
+app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/userinfo.email']})
 );
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login'}),
+  function(req, res) {
+    console.log('req.body', req.query);
+    res.redirect('/loggedIn/User');
+  }
+);
+
+app.get('/loggedIn/*', function(req, res) {
+  fs.readFile(path.join(__dirname, '../public/index.html'), 'utf8', function(err, data) {
+    if (err) {
+      // res.Content-Type: 'application/html'
+      res.status(500).end('err');
+      console.log(err);
+    } else {
+      res.status(200).send(data);
+    }
+
+  });
+});
 
 //handles sending Email
 app.post('/sendlist', handler.sendList);
