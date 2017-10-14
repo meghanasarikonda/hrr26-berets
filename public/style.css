@@ -129,16 +129,12 @@ body {
 }
 
 .wish-list-shift {
-  transform: translateX(10px)
+  transform: translateX(12px)
 }
 
 .clear-icon {
   float: right;
   transform: translateY(-10px) translateX(7px);
-}
-
-.row {
-  border: 1px solid green;
 }
 
 .container-fluid {

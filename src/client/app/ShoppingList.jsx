@@ -3,6 +3,7 @@ import ListItem from './ListItem.jsx';
 import ShoppingListEntry from './ShoppingListEntry.jsx';
 import IconButton from 'material-ui/IconButton';
 import AlertToRemoveList from './AlertToRemoveList.jsx';
+import WishListIconMenu from './WishListIconMenu.jsx';
 
 export default class ShoppingList extends Component {
   constructor(props) {
@@ -85,13 +86,15 @@ export default class ShoppingList extends Component {
               ?
               <h3 className="wish-list wish-list-shift">
                 <input autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
-                <AlertToRemoveList removeList={this.props.removeList}/>
+                <WishListIconMenu />
+
               </h3>
               :
               <div>
                 <h3 className="wish-list wish-list-name" onClick={this.handleRename}>
                   {this.props.currentListName}
                 </h3>
+                <WishListIconMenu />
                 <AlertToRemoveList removeList={this.props.removeList}/>
               </div>
           }
