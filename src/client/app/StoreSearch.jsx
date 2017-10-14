@@ -11,7 +11,7 @@ class StoreSearch extends React.Component {
       stores: [],
     };
     this.onSearch = this.onSearch.bind(this);
-    this.searchStores = this.searchStores.bind(this); 
+    this.searchStores = this.searchStores.bind(this);
   }
 
   onSearch(e) {
@@ -48,7 +48,7 @@ class StoreSearch extends React.Component {
           onChange={this.onSearch}
         />
         <FlatButton
-          label="Find Walmart"
+          label="Go"
           primary={true}
           className="searchBtn"
           value="Search Store"

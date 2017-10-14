@@ -351,8 +351,10 @@ class Main extends Component {
     let FeaturedListContainer = <div>Loading Featured Lists...</div>;
     if (Object.keys(this.state.catalog).length === 4) {
       FeaturedListContainer = (
-        <div className="col-xs-12">
-          <br /> <h3>Featured Items</h3>
+        <div className="row">
+          <br />
+          <br />
+          <h3 className="featured">Featured Items</h3>
           <FeaturedLists
             list={this.state.catalog}
             addToList={this.handleAddToList}
@@ -370,10 +372,9 @@ class Main extends Component {
           {/* Popular items retrieved from Walmart's 'Trending' api */}
           <div className="row">
             <div className="col-md-3">
+              <h2>Locate Walmart: </h2>
               <StoreSearch handleStoreSearch={this.handleStoreSearch}/>
-              <div className="row">
-                {StoreResultsContainer}
-              </div>
+              {StoreResultsContainer}
             </div>
             <div className="col-md-6" id="whitebox-popular">
               <h3>Popular Items</h3>
@@ -385,18 +386,32 @@ class Main extends Component {
             </div>
             <div className="col-md-3">
               {/* User's current shopping list */}
-              <div className="row">
+              <div className="row shoppingContainer">
+                <br />
                 {ShoppingContainer}
               </div>
             </div>
+
           </div><br />
           {/* Search results render here */}
           <div className="row">
-            {SearchResultsContainer}
+            <div className="col-md-2">
+            </div>
+            <div className="col-md-8 searchContainer">
+              {SearchResultsContainer}
+            </div>
+            <div className="col-md-2">
+            </div>
           </div>
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
-            {FeaturedListContainer}
+            <div className="col-md-1">
+            </div>
+            <div className="col-md-10">
+              {FeaturedListContainer}
+            </div>
+            <div className="col-md-1">
+            </div>
           </div>
         </div>
       </div>
