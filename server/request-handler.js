@@ -512,7 +512,7 @@ exports.updateProducts = (req, res) => {
 exports.sendList = (req, res) => {
   var userEmail = req.session.passport.user;
   var wishlist = req.body.list;
-  console.log('this is my req.body.list', req.body.list);
+
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -537,7 +537,6 @@ exports.sendList = (req, res) => {
 };
 
 exports.getStores = (req, res) => {
-  console.log(req.query.query);
   let query = req.query.query;
   let options = {
     uri: 'http://api.walmartlabs.com/v1/stores?format=json&zip=' + query,
@@ -559,7 +558,6 @@ exports.getStores = (req, res) => {
           phone: item.phoneNumber
         };
       });
-      console.log(items);
       res.json(items);
     })
     .catch((err) => {
