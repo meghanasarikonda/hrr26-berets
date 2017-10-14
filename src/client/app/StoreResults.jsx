@@ -7,7 +7,6 @@ class StoreResults extends Component {
   }
 
   render() {
-    console.log('props results', this.props.results);
     return (
       <div>
         <h3>Store Results</h3>
