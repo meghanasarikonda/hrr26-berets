@@ -86,7 +86,7 @@ export default class ShoppingList extends Component {
               ?
               <h3 className="wish-list wish-list-shift">
                 <input autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
-                <WishListIconMenu removeList={this.props.removeList}/>
+                <WishListIconMenu removeList={this.props.removeList} newList={this.props.newList}/>
 
               </h3>
               :
@@ -94,7 +94,7 @@ export default class ShoppingList extends Component {
                 <h3 className="wish-list wish-list-name" onClick={this.handleRename}>
                   {this.props.currentListName}
                 </h3>
-                <WishListIconMenu removeList={this.props.removeList}/>
+                <WishListIconMenu removeList={this.props.removeList} newList={this.props.newList}/>
               </div>
           }
           <ShoppingListEntry

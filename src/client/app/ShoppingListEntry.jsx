@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ListItem from './ListItem.jsx';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import NewListModal from './NewListModal.jsx';
 import Snackbar from 'material-ui/Snackbar';
 import RaisedButton from 'material-ui/RaisedButton';
 import EmailSnackBar from './EmailSnackBar.jsx';
@@ -39,7 +38,6 @@ class ShoppingListEntry extends Component {
             </span>
           }
           <div style={{'marginTop': '5px', 'marginBottom': '10px'}}>
-            <NewListModal newList={this.props.newList} />
           </div>
           <EmailSnackBar sendList={this.props.sendList} />
         </div>
