@@ -83,7 +83,7 @@ export default class ShoppingList extends Component {
           {
             (this.state.renaming)
               ?
-              <h3 className="wish-list">
+              <h3 className="wish-list wish-list-shift">
                 <input autoFocus onFocus={this.moveCursorToEnd} onBlur={this.cancelRename} className="wish-list-edit" onChange={(e) => this.handleName(e.target.value)} type="text" defaultValue={this.props.currentListName} onKeyPress={this.handleEnterKeyPress} />
                 <AlertToRemoveList removeList={this.props.removeList}/>
               </h3>

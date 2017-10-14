@@ -128,6 +128,10 @@ body {
   display:inline-block;
 }
 
+.wish-list-shift {
+  transform: translateX(10px)
+}
+
 .clear-icon {
   float: right;
   transform: translateY(-10px) translateX(7px);
