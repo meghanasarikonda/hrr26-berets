@@ -28,6 +28,7 @@ class SearchBar extends Component {
     })
       .then((res) => {
         handleSearch(res.data);
+        console.log('my res.data', res.data);
       })
       .catch((err) => {
         console.log(err);
