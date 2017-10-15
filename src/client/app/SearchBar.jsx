@@ -12,12 +12,15 @@ class SearchBar extends Component {
   }
 
   onSearch(e) {
+    console.log(this.state.query);
     this.setState({
       'query': e.target.value
     });
   }
 
-  searchProducts(e) {
+  searchProducts(e, query) {
+    e.preventDefault();
+    console.log(query);
     var handleSearch = this.props.handleSearch;
     var query = this.state.query;
 
@@ -38,7 +41,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.searchProducts} className="search">
+      <form onSubmit={(e) => this.searchProducts(e, this.state.query)} className="search">
         <div className="input-group">
           <input id={this.state.query} className="form-control mr-sm-2" onChange={this.onSearch} type="text" placeholder="Search" aria-label="Search"/>
           <button type="submit" id={this.state.query} onClick={this.searchProducts} className="btn btn-outline-primary my-2 my-sm-0">

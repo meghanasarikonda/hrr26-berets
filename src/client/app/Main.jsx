@@ -27,6 +27,7 @@ class Main extends Component {
       myList: [],
       shoppingList: {},
       storeResults: [],
+      loading: false
     };
 
     this.handleAddToList = this.handleAddToList.bind(this);
@@ -87,10 +88,14 @@ class Main extends Component {
   }
 
   getTrendingItems() {
+    this.setState({
+      loading: true
+    });
     axios.get('/trending')
       .then((res) => {
         this.setState({
-          popular: res.data
+          popular: res.data,
+          loading: false
         });
       })
       .catch((err) => {
@@ -108,7 +113,7 @@ class Main extends Component {
             myList: arr,
             currentListName: arr[0],
             shoppingList: collection,
-            currentList: collection[arr[0]]
+            currentList: collection[arr[0]],
           });
         }
       })
@@ -119,6 +124,24 @@ class Main extends Component {
 
   handleSearch(products) {
     this.setState({ searchResults: products });
+  }
+
+  searchProducts(e) {
+    var query = this.state.query;
+
+    axios.get('/search', {
+      params: {
+        query: query
+      }
+    })
+      .then((res) => {
+        this.handleSearch(res.data);
+        console.log('my res.data', res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    e.preventDefault();
   }
 
   handleStoreSearch(stores) {
@@ -381,6 +404,7 @@ class Main extends Component {
               currentList={this.state.currentList}
               searchResults={this.state.searchResults}
               results={this.state.searchResults}
+              loading={this.state.loading}
             />
             <div className="col-md-3">
               {/* User's current shopping list */}

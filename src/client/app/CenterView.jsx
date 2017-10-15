@@ -14,29 +14,36 @@ export default class CenterView extends Component {
   }
 
   render() {
-    console.log(this.props.searchResults);
-    if (this.props.searchResults.length) {
+    if (this.props.loading) {
       return (
         <div className="center-view col-md-6" id="whitebox-popular">
-          <h3>Search Results</h3>
-          <SearchResults
-            results={this.props.searchResults}
-            addToList={this.props.addToList}
-            removeItem={this.props.removeItem}
-            currentList={this.props.currentList}/>
+          <LoadingCircle />
         </div>
       );
     } else {
-      return (
-        <div className="center-view col-md-6" id="whitebox-popular">
-          <h3>Popular Items</h3>
-          <SearchResults
-            results={this.props.products}
-            addToList={this.props.addToList}
-            removeItem={this.props.removeItem}
-            currentList={this.props.currentList}/>
-        </div>
-      );
+      if (this.props.searchResults.length) {
+        return (
+          <div className="center-view col-md-6" id="whitebox-popular">
+            <h3>Search Results</h3>
+            <SearchResults
+              results={this.props.searchResults}
+              addToList={this.props.addToList}
+              removeItem={this.props.removeItem}
+              currentList={this.props.currentList}/>
+          </div>
+        );
+      } else {
+        return (
+          <div className="center-view col-md-6" id="whitebox-popular">
+            <h3>Popular Items</h3>
+            <SearchResults
+              results={this.props.products}
+              addToList={this.props.addToList}
+              removeItem={this.props.removeItem}
+              currentList={this.props.currentList}/>
+          </div>
+        );
+      }
     }
   }
 }
