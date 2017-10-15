@@ -217,6 +217,9 @@ i {
   display: inline-block;
 }
 
-.col-md-6, .col-md-3 {
-  border: 1px solid black;
+.center-view {
+  height: 544px;
 }
+/*.col-md-6, .col-md-3 {
+  border: 1px solid black;
+}*/

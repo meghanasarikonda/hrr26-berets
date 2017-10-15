@@ -5,6 +5,7 @@ import Snackbar from 'material-ui/Snackbar';
 import RaisedButton from 'material-ui/RaisedButton';
 import PopularItems from './PopularItems.jsx';
 import SearchResults from './SearchResults.jsx';
+import LoadingCircle from './LoadingCircle.jsx';
 
 export default class CenterView extends Component {
 
@@ -16,7 +17,7 @@ export default class CenterView extends Component {
     console.log(this.props.searchResults);
     if (this.props.searchResults.length) {
       return (
-        <div className="col-md-6" id="whitebox-popular">
+        <div className="center-view col-md-6" id="whitebox-popular">
           <h3>Search Results</h3>
           <SearchResults
             results={this.props.searchResults}
@@ -27,7 +28,7 @@ export default class CenterView extends Component {
       );
     } else {
       return (
-        <div className="col-md-6" id="whitebox-popular">
+        <div className="center-view col-md-6" id="whitebox-popular">
           <h3>Popular Items</h3>
           <SearchResults
             results={this.props.products}
