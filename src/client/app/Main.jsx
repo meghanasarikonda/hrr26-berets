@@ -128,14 +128,19 @@ class Main extends Component {
   }
 
   searchProducts(e, query) {
-    console.log(query);
+    this.setState({
+      loading: true
+    });
     axios.get('/search', {
       params: {
         query: query
       }
     })
       .then((res) => {
-        this.handleSearch(res.data);
+        this.setState({
+          searchResults: res.data,
+          loading: false
+        });
         console.log('my res.data', res.data);
       })
       .catch((err) => {

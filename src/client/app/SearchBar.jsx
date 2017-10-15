@@ -12,7 +12,6 @@ class SearchBar extends Component {
   }
 
   onSearch(e) {
-    console.log(this.state.query);
     this.setState({
       'query': e.target.value
     });
