@@ -76,7 +76,7 @@ const WishListItemScroll = (props) => (
           key={item.image}
           title={item.name}
           subtitle={<span></span>}
-          actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+          actionIcon={<IconButton><i className="input-delete-icon material-icons">delete</i></IconButton>}
         >
           <img src={item.largeImage} />
         </GridTile>

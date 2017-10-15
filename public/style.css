@@ -171,6 +171,10 @@ h3.wish-list-name:hover {
   background-color: #F9EDBE;
 }
 
+i {
+  color: white;
+}
+
 .wish-list {
   display:inline-block;
 }
