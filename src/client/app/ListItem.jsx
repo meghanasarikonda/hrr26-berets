@@ -47,6 +47,9 @@ class ListItem extends Component {
         </div>
         <div className='col-sm-2'>
           <b> ${this.props.item.price} </b>
+          <div>
+            <img src={this.props.item.rating} alt=""/>
+          </div>
         </div><br />
         <div className='col-sm-2'>
           {
@@ -57,9 +60,6 @@ class ListItem extends Component {
         </div>
         <div className='col-sm-2'>
           <a href={this.props.item.url} target="_blank" className="btn btn-primary">Buy it Now!</a><br /><br /><p/>
-        </div>
-        <div>
-          <img src={this.props.item.rating} alt=""/>
         </div>
       </div>
     );

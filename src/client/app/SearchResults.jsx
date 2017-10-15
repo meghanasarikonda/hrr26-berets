@@ -9,7 +9,6 @@ class SearchResults extends Component {
   render() {
     return (
       <div>
-        <h3>Search Results</h3>
         {
           this.props.results.map(result => {
             let isInList = !!this.props.currentList.find(itm => itm.itemId === result.itemId);

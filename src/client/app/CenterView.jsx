@@ -17,6 +17,7 @@ export default class CenterView extends Component {
     if (this.props.searchResults.length) {
       return (
         <div className="col-md-6" id="whitebox-popular">
+          <h3>Search Results</h3>
           <SearchResults
             results={this.props.searchResults}
             addToList={this.props.addToList}
@@ -28,8 +29,8 @@ export default class CenterView extends Component {
       return (
         <div className="col-md-6" id="whitebox-popular">
           <h3>Popular Items</h3>
-          <PopularItems
-            products={this.props.products}
+          <SearchResults
+            results={this.props.products}
             addToList={this.props.addToList}
             removeItem={this.props.removeItem}
             currentList={this.props.currentList}/>
