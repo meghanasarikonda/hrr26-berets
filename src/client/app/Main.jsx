@@ -100,6 +100,10 @@ class Main extends Component {
         });
       })
       .catch((err) => {
+        this.setState({
+          loading: false
+        });
+        alert('Service Unavailable');
         console.log(err);
       });
   }
@@ -159,7 +163,7 @@ class Main extends Component {
     }
     console.log(this.state.currentList);
     let list = this.state.currentList.slice();
-    list.push(item);
+    list.unshift(item);
     this.setState({
       currentList: list
     }, this.saveList);
@@ -352,7 +356,7 @@ class Main extends Component {
     }
 
 
-    let ShoppingContainer = <div>Log in to see your lists!</div>;
+    let ShoppingContainer = <div>Log in to see your wish lists!</div>;
     if (this.props.loggedIn) {
       ShoppingContainer = (
         <div>

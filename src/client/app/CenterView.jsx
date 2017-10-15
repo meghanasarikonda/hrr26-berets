@@ -35,7 +35,7 @@ export default class CenterView extends Component {
       } else {
         return (
           <div className="center-view col-md-6" id="whitebox-popular">
-            <h3>Popular Items</h3>
+            <h3>Trending Items</h3>
             <SearchResults
               results={this.props.products}
               addToList={this.props.addToList}

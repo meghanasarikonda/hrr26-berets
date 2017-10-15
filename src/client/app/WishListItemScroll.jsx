@@ -30,7 +30,7 @@ const WishListItemScroll = (props) => (
     >
       {props.shoppingList.map((item) => (
         <GridTile
-          key={item.image}
+          key={item.url}
           title={<a className="item-title" href={item.url} target="_blank">{item.name}</a>}
           subtitle={<span></span>}
           actionIcon={<IconButton onClick={() => { props.removeItem(item.itemId); }}>
