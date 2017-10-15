@@ -224,6 +224,11 @@ i {
 .loading-circle {
   transform: translateY(232px);
 }
+
+.store {
+  height: 392px;
+  overflow-y: scroll;
+}
 /*.col-md-6, .col-md-3 {
   border: 1px solid black;
 }*/

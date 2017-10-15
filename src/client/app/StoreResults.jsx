@@ -9,21 +9,22 @@ class StoreResults extends Component {
   render() {
     return (
       <div>
-        <h3 className="store">Stores Near You: </h3>
-        {this.props.results.map((result) => {
-          return (
-            <StoreResultsItem
-              name={result.name}
-              address={result.streetAddress}
-              city={result.city}
-              state={result.state}
-              zipcode={result.zipcode}
-              phone={result.phone}
-
-            />
-          );
-        })}
-
+        <h3>Stores Near You: </h3>
+        <div className="store">
+          {this.props.results.map((result) => {
+            return (
+              <StoreResultsItem
+                key={result.streetAddress}
+                name={result.name}
+                address={result.streetAddress}
+                city={result.city}
+                state={result.state}
+                zipcode={result.zipcode}
+                phone={result.phone}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
