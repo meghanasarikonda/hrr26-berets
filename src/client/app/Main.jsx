@@ -12,6 +12,7 @@ import request from 'superagent';
 import Header from './Header.jsx';
 import StoreSearch from './StoreSearch.jsx';
 import StoreResults from './StoreResults.jsx';
+import CenterView from './CenterView.jsx';
 
 class Main extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Main extends Component {
       myList: [],
       shoppingList: {},
       storeResults: [],
+      loading: false
     };
 
     this.handleAddToList = this.handleAddToList.bind(this);
@@ -43,6 +45,7 @@ class Main extends Component {
     this.handleRenameList = this.handleRenameList.bind(this);
     this.renameList = this.renameList.bind(this);
     this.sendList = this.sendList.bind(this);
+    this.searchProducts = this.searchProducts.bind(this);
   }
 
   componentWillMount() {
@@ -86,10 +89,14 @@ class Main extends Component {
   }
 
   getTrendingItems() {
+    this.setState({
+      loading: true
+    });
     axios.get('/trending')
       .then((res) => {
         this.setState({
-          popular: res.data
+          popular: res.data,
+          loading: false
         });
       })
       .catch((err) => {
@@ -107,7 +114,7 @@ class Main extends Component {
             myList: arr,
             currentListName: arr[0],
             shoppingList: collection,
-            currentList: collection[arr[0]]
+            currentList: collection[arr[0]],
           });
         }
       })
@@ -120,6 +127,28 @@ class Main extends Component {
     this.setState({ searchResults: products });
   }
 
+  searchProducts(e, query) {
+    this.setState({
+      loading: true
+    });
+    axios.get('/search', {
+      params: {
+        query: query
+      }
+    })
+      .then((res) => {
+        this.setState({
+          searchResults: res.data,
+          loading: false
+        });
+        console.log('my res.data', res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    e.preventDefault();
+  }
+
   handleStoreSearch(stores) {
     this.setState({ storeResults: stores });
   }
@@ -130,7 +159,7 @@ class Main extends Component {
     }
     console.log(this.state.currentList);
     let list = this.state.currentList.slice();
-    list.push(item);
+    list.unshift(item);
     this.setState({
       currentList: list
     }, this.saveList);
@@ -274,29 +303,6 @@ class Main extends Component {
   }
 
   render() {
-    // let PopularItemsContainer = (
-    //   <div className="col-xs-12">
-    //     <br />
-    //     <h3> Popular Items</h3>
-    //     <div>Loading Popular Items...</div><br />
-    //   </div>
-    // );
-    // if (this.state.popular.length) {
-    //   PopularItemsContainer = (
-    //     // <div id='whitebox-popular'>
-    //     <div className="col-xs-12" id="whitebox-popular">
-    //       <br />
-    //       <h3>Popular Items</h3>
-    //       <PopularItems
-    //         products={this.state.popular}
-    //         addToList={this.handleAddToList}
-    //         removeItem={this.handleRemoveFromList}
-    //         currentList={this.state.currentList}/>
-    //     </div>
-    //     // </div>
-    //   );
-    // }
-
     let SearchResultsContainer = null;
     if (this.state.searchResults.length) {
       SearchResultsContainer = (
@@ -306,8 +312,6 @@ class Main extends Component {
             addToList={this.handleAddToList}
             removeItem={this.handleRemoveFromList}
             currentList={this.state.currentList}/>
-          <br />
-          <br />
         </div>
       );
     }
@@ -325,7 +329,7 @@ class Main extends Component {
     }
 
 
-    let ShoppingContainer = <div>Log in to see your lists!</div>;
+    let ShoppingContainer = <div>Log in to see your wish lists!</div>;
     if (this.props.loggedIn) {
       ShoppingContainer = (
         <div>
@@ -348,7 +352,7 @@ class Main extends Component {
       );
     }
 
-    let FeaturedListContainer = <div>Loading Featured Lists...</div>;
+    let FeaturedListContainer = <div></div>;
     if (Object.keys(this.state.catalog).length === 4) {
       FeaturedListContainer = (
         <div className="row">
@@ -366,7 +370,7 @@ class Main extends Component {
 
     return (
       <div>
-        <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut}/>
+        <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut} searchProducts={this.searchProducts}/>
         <div className="container-fluid">
           <br />
           {/* Popular items retrieved from Walmart's 'Trending' api */}
@@ -376,30 +380,20 @@ class Main extends Component {
               <StoreSearch handleStoreSearch={this.handleStoreSearch}/>
               {StoreResultsContainer}
             </div>
-            <div className="col-md-6" id="whitebox-popular">
-              <h3>Popular Items</h3>
-              <PopularItems
-                products={this.state.popular}
-                addToList={this.handleAddToList}
-                removeItem={this.handleRemoveFromList}
-                currentList={this.state.currentList}/>
-            </div>
+            <CenterView products={this.state.popular}
+              addToList={this.handleAddToList}
+              removeItem={this.handleRemoveFromList}
+              currentList={this.state.currentList}
+              searchResults={this.state.searchResults}
+              results={this.state.searchResults}
+              loading={this.state.loading}
+            />
             <div className="col-md-3">
               {/* User's current shopping list */}
               {ShoppingContainer}
             </div>
 
           </div><br />
-          {/* Search results render here */}
-          <div className="row">
-            <div className="col-md-2">
-            </div>
-            <div className="col-md-8 searchContainer">
-              {SearchResultsContainer}
-            </div>
-            <div className="col-md-2">
-            </div>
-          </div>
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
             <div className="col-md-1">

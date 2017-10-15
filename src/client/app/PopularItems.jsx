@@ -39,11 +39,6 @@ const PopularItems = (props) => {
         )}
       </div>);
   }
-  return (
-    <div className="popular-items">
-        No products here!
-    </div>
-  );
 };
 
 export default PopularItems;

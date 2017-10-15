@@ -26,7 +26,7 @@ export default class Header extends React.Component {
                     <a className="nav-link" href="#" onClick={this.props.handleLogout}>Log Out</a>
                   </li>
                 </ul>
-                <SearchBar handleSearch={this.props.handleSearch}/>
+                <SearchBar searchProducts={this.props.searchProducts} handleSearch={this.props.handleSearch}/>
               </div>
             </div>
           </nav>
@@ -47,7 +47,7 @@ export default class Header extends React.Component {
                     <Link to="/loginUser" className="nav-link" href="#">Log In</Link>
                   </li>
                 </ul>
-                <SearchBar handleSearch={this.props.handleSearch}/>
+                <SearchBar searchProducts={this.props.searchProducts} handleSearch={this.props.handleSearch}/>
               </div>
             </div>
           </nav>

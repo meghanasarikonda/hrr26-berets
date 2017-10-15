@@ -75,6 +75,7 @@ exports.search = (req, res) => {
         obj.largeImage = el.largeImage;
         obj.url = el.productUrl;
         obj.itemId = el.itemId;
+        obj.rating = el.customerRatingImage;
         acc.push(obj);
       }
 

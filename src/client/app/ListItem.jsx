@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Modal, ModalBody } from 'react-modal-bootstrap';
 import ProductDetails from './ProductDetails.jsx';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 class ListItem extends Component {
   constructor(props) {
@@ -29,38 +31,37 @@ class ListItem extends Component {
   }
 
   render() {
-    const { item, vertical } = this.props;
     return (
-      <div className={vertical ? 'col-sm-2' : 'row'}>
+      <div className='row'>
         <Modal
           isOpen={this.state.showDetails}
           onRequestHide={this.handleItemClick}
         >
           <ModalBody>
-            <ProductDetails itemId={item.itemId} itemUrl={item.url} addToList={this.props.addToList} removeItem={this.props.removeItem} isInList={this.props.isInList} />
+            <ProductDetails itemId={this.props.item.itemId} itemUrl={this.props.item.url} addToList={this.props.addToList} removeItem={this.props.removeItem} isInList={this.props.isInList} />
           </ModalBody>
         </Modal>
-        <div className={vertical ? '' : 'col-sm-3'}>
-          <a className="text-link" onClick={this.handleItemClick}><strong>{item.name.substring(0, 30)}</strong></a>
+        <div className='col-sm-3'>
+          <a className="text-link" onClick={this.handleItemClick}><strong>{this.props.item.name.substring(0, 30)}</strong></a>
         </div><br />
-        <div className={vertical ? '' : 'col-sm-3'}>
-          <img src={item.image} alt=""/>
+        <div className='col-sm-2'>
+          <img src={this.props.item.image} alt=""/>
         </div>
-        <div className={vertical ? '' : 'col-sm-2'}>
-          <b> ${item.price} </b>
+        <div className='col-sm-2'>
+          <b> ${this.props.item.price} </b>
+          <div>
+            <img src={this.props.item.rating} alt=""/>
+          </div>
         </div><br />
-        <div className={vertical ? '' : 'col-sm-2'}>
+        <div className='col-sm-2'>
           {
             (this.props.isInList)
-              ? <a className="btn btn-default btn-block" onClick={this.handleRemove}>Remove From List</a>
-              : <a className="btn btn-default btn-block" onClick={this.handleAdd}>Add to List</a>
+              ? <RaisedButton label="Remove" onClick={this.handleRemove} />
+              : <RaisedButton label="Add" onClick={this.handleAdd} />
           }
         </div>
-        <div className={vertical ? '' : 'col-sm-2'}>
-          <a href={item.url} target="_blank" className="btn btn-primary">Buy it Now!</a><br /><br /><p/>
-        </div>
-        <div>
-          <img src={item.rating} alt=""/>
+        <div className='col-sm-3'>
+          <FlatButton label="To Walmart.com" href={this.props.item.url} target="_blank" />
         </div>
       </div>
     );

@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import FlatButton from 'material-ui/FlatButton';
 
-
 class StoreSearch extends React.Component {
   constructor() {
     super();
@@ -49,7 +48,6 @@ class StoreSearch extends React.Component {
         />
         <FlatButton
           label="Go"
-          primary={true}
           className="searchBtn"
           value="Search Store"
           id={this.state.query}

@@ -61,7 +61,7 @@ h2 {
 
 .searchBar {
   text-align: center;
-  margin: 0 auto;
+  margin-left: 10.625px;
   font-family: monospace;
   width: 330px;
   height: 40px;
@@ -144,18 +144,6 @@ h2 {
   cursor: pointer;
 }
 
-.button-name {
-  margin-left: 10px;
-}
-
-.button-save {
-  margin-left: 20px;
-}
-
-.list-tools {
-  margin-bottom: 20px;
-}
-
 .divider {
   width: 5px;
   height: auto;
@@ -215,4 +203,26 @@ i {
 .email-button {
   float: right;
   display: inline-block;
+}
+
+.center-view {
+  height: 544px;
+}
+
+.loading-circle {
+  transform: translateY(232px);
+}
+
+.store {
+  height: 392px;
+  overflow-y: scroll;
+}
+
+.col-md-3 {
+  border: 1px solid black;
+}
+
+.col-md-6 {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
