@@ -220,6 +220,10 @@ i {
 .center-view {
   height: 544px;
 }
+
+.loading-circle {
+  transform: translateY(232px);
+}
 /*.col-md-6, .col-md-3 {
   border: 1px solid black;
 }*/
