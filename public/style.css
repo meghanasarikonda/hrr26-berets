@@ -61,7 +61,7 @@ h2 {
 
 .searchBar {
   text-align: center;
-  margin: 0 auto;
+  margin-left: 10.625px;
   font-family: monospace;
   width: 330px;
   height: 40px;
