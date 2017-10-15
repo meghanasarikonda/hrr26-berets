@@ -105,19 +105,7 @@ export default class ShoppingList extends Component {
               <EmailSnackBar sendList={this.props.sendList} />
             </div>
           </div>
-          <WishListItemScroll shoppingList={this.props.list}/>
-          <ShoppingListEntry
-            myList={this.props.myList}
-            shoppingList={this.props.list}
-            removeItem={this.props.removeItem}
-            handleChange={this.handleChange}
-            setName={this.setName}
-            currentListName={this.props.currentListName}
-            newList={this.props.newList}
-            saveList={this.props.saveList}
-            removeList={this.props.removeList}
-            sendList={this.props.sendList}
-          />
+          <WishListItemScroll shoppingList={this.props.list} removeItem={this.props.removeItem}/>
         </div>
       );
     }
