@@ -12,6 +12,7 @@ import request from 'superagent';
 import Header from './Header.jsx';
 import StoreSearch from './StoreSearch.jsx';
 import StoreResults from './StoreResults.jsx';
+import CenterView from './CenterView.jsx';
 
 class Main extends Component {
   constructor(props) {
@@ -306,8 +307,6 @@ class Main extends Component {
             addToList={this.handleAddToList}
             removeItem={this.handleRemoveFromList}
             currentList={this.state.currentList}/>
-          <br />
-          <br />
         </div>
       );
     }
@@ -376,30 +375,19 @@ class Main extends Component {
               <StoreSearch handleStoreSearch={this.handleStoreSearch}/>
               {StoreResultsContainer}
             </div>
-            <div className="col-md-6" id="whitebox-popular">
-              <h3>Popular Items</h3>
-              <PopularItems
-                products={this.state.popular}
-                addToList={this.handleAddToList}
-                removeItem={this.handleRemoveFromList}
-                currentList={this.state.currentList}/>
-            </div>
+            <CenterView products={this.state.popular}
+              addToList={this.handleAddToList}
+              removeItem={this.handleRemoveFromList}
+              currentList={this.state.currentList}
+              searchResults={this.state.searchResults}
+              results={this.state.searchResults}
+            />
             <div className="col-md-3">
               {/* User's current shopping list */}
               {ShoppingContainer}
             </div>
 
           </div><br />
-          {/* Search results render here */}
-          <div className="row">
-            <div className="col-md-2">
-            </div>
-            <div className="col-md-8 searchContainer">
-              {SearchResultsContainer}
-            </div>
-            <div className="col-md-2">
-            </div>
-          </div>
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
             <div className="col-md-1">

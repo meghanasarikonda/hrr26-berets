@@ -216,3 +216,7 @@ i {
   float: right;
   display: inline-block;
 }
+
+.col-md-6, .col-md-3 {
+  border: 1px solid black;
+}
