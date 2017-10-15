@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Modal, ModalBody } from 'react-modal-bootstrap';
 import ProductDetails from './ProductDetails.jsx';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 class ListItem extends Component {
   constructor(props) {
@@ -42,7 +44,7 @@ class ListItem extends Component {
         <div className='col-sm-3'>
           <a className="text-link" onClick={this.handleItemClick}><strong>{this.props.item.name.substring(0, 30)}</strong></a>
         </div><br />
-        <div className='col-sm-3'>
+        <div className='col-sm-2'>
           <img src={this.props.item.image} alt=""/>
         </div>
         <div className='col-sm-2'>
@@ -54,12 +56,12 @@ class ListItem extends Component {
         <div className='col-sm-2'>
           {
             (this.props.isInList)
-              ? <a className="btn btn-default" onClick={this.handleRemove}>Remove From List</a>
-              : <a className="btn btn-default" onClick={this.handleAdd}>Add to List</a>
+              ? <RaisedButton label="Remove" onClick={this.handleRemove} />
+              : <RaisedButton label="Add" onClick={this.handleAdd} />
           }
         </div>
-        <div className='col-sm-2'>
-          <a href={this.props.item.url} target="_blank" className="btn btn-primary">Buy it Now!</a><br /><br /><p/>
+        <div className='col-sm-3'>
+          <FlatButton label="To Walmart.com" href={this.props.item.url} target="_blank" />
         </div>
       </div>
     );
