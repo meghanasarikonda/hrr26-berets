@@ -45,6 +45,7 @@ class Main extends Component {
     this.handleRenameList = this.handleRenameList.bind(this);
     this.renameList = this.renameList.bind(this);
     this.sendList = this.sendList.bind(this);
+    this.searchProducts = this.searchProducts.bind(this);
   }
 
   componentWillMount() {
@@ -126,9 +127,8 @@ class Main extends Component {
     this.setState({ searchResults: products });
   }
 
-  searchProducts(e) {
-    var query = this.state.query;
-
+  searchProducts(e, query) {
+    console.log(query);
     axios.get('/search', {
       params: {
         query: query
@@ -388,7 +388,7 @@ class Main extends Component {
 
     return (
       <div>
-        <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut}/>
+        <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut} searchProducts={this.searchProducts}/>
         <div className="container-fluid">
           <br />
           {/* Popular items retrieved from Walmart's 'Trending' api */}
