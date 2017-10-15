@@ -2,7 +2,7 @@ body {
   background-color: #d9e8f7;
 }
 
-h3 {
+/*h3 {
   font-family: monospace;
   font-size: 25px;
   text-align: center;
@@ -18,7 +18,7 @@ h2 {
   font-size: 20px;
   text-align: center;
   font-family: monospace;
-}
+}*/
 
 .searchContainer {
   background-color: white;
@@ -171,6 +171,10 @@ h3.wish-list-name:hover {
   background-color: #F9EDBE;
 }
 
+i {
+  color: white;
+}
+
 .wish-list {
   display:inline-block;
 }
@@ -181,6 +185,14 @@ h3.wish-list-name:hover {
 
 .wish-list-edit {
   margin-bottom: 4px;
+}
+
+.item-title {
+  color: inherit;
+}
+
+.item-title:hover {
+  color: white;
 }
 
 .clear-icon {
@@ -194,7 +206,7 @@ h3.wish-list-name:hover {
 }
 
 .create-wish-list-button {
-  margin: 0px 40px 20px 20px;
+  margin: 0px 40px 20px 4px;
   margin-right: 40px;
   display: inline-block;
   margin-bottom: 10px;

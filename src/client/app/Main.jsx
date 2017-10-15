@@ -372,7 +372,7 @@ class Main extends Component {
           {/* Popular items retrieved from Walmart's 'Trending' api */}
           <div className="row">
             <div className="col-md-3">
-              <h2>Locate Walmart: </h2>
+              <h3>Locate Walmart: </h3>
               <StoreSearch handleStoreSearch={this.handleStoreSearch}/>
               {StoreResultsContainer}
             </div>

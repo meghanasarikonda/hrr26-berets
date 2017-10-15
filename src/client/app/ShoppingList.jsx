@@ -6,6 +6,7 @@ import AlertToRemoveList from './AlertToRemoveList.jsx';
 import WishListIconMenu from './WishListIconMenu.jsx';
 import EmailSnackBar from './EmailSnackBar.jsx';
 import NewListModal from './NewListModal.jsx';
+import WishListItemScroll from './WishListItemScroll.jsx';
 
 export default class ShoppingList extends Component {
   constructor(props) {
@@ -104,18 +105,7 @@ export default class ShoppingList extends Component {
               <EmailSnackBar sendList={this.props.sendList} />
             </div>
           </div>
-          <ShoppingListEntry
-            myList={this.props.myList}
-            shoppingList={this.props.list}
-            removeItem={this.props.removeItem}
-            handleChange={this.handleChange}
-            setName={this.setName}
-            currentListName={this.props.currentListName}
-            newList={this.props.newList}
-            saveList={this.props.saveList}
-            removeList={this.props.removeList}
-            sendList={this.props.sendList}
-          />
+          <WishListItemScroll shoppingList={this.props.list} removeItem={this.props.removeItem}/>
         </div>
       );
     }
