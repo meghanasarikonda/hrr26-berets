@@ -54,8 +54,8 @@ class ListItem extends Component {
         <div className='col-sm-2'>
           {
             (this.props.isInList)
-              ? <a className="btn btn-default btn-block" onClick={this.handleRemove}>Remove From List</a>
-              : <a className="btn btn-default btn-block" onClick={this.handleAdd}>Add to List</a>
+              ? <a className="btn btn-default" onClick={this.handleRemove}>Remove From List</a>
+              : <a className="btn btn-default" onClick={this.handleAdd}>Add to List</a>
           }
         </div>
         <div className='col-sm-2'>
