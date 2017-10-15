@@ -100,10 +100,6 @@ class Main extends Component {
         });
       })
       .catch((err) => {
-        this.setState({
-          loading: false
-        });
-        alert('Service Unavailable');
         console.log(err);
       });
   }
@@ -307,29 +303,6 @@ class Main extends Component {
   }
 
   render() {
-    // let PopularItemsContainer = (
-    //   <div className="col-xs-12">
-    //     <br />
-    //     <h3> Popular Items</h3>
-    //     <div>Loading Popular Items...</div><br />
-    //   </div>
-    // );
-    // if (this.state.popular.length) {
-    //   PopularItemsContainer = (
-    //     // <div id='whitebox-popular'>
-    //     <div className="col-xs-12" id="whitebox-popular">
-    //       <br />
-    //       <h3>Popular Items</h3>
-    //       <PopularItems
-    //         products={this.state.popular}
-    //         addToList={this.handleAddToList}
-    //         removeItem={this.handleRemoveFromList}
-    //         currentList={this.state.currentList}/>
-    //     </div>
-    //     // </div>
-    //   );
-    // }
-
     let SearchResultsContainer = null;
     if (this.state.searchResults.length) {
       SearchResultsContainer = (
@@ -379,7 +352,7 @@ class Main extends Component {
       );
     }
 
-    let FeaturedListContainer = <div>Loading Featured Lists...</div>;
+    let FeaturedListContainer = <div></div>;
     if (Object.keys(this.state.catalog).length === 4) {
       FeaturedListContainer = (
         <div className="row">

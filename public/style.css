@@ -144,18 +144,6 @@ h2 {
   cursor: pointer;
 }
 
-.button-name {
-  margin-left: 10px;
-}
-
-.button-save {
-  margin-left: 20px;
-}
-
-.list-tools {
-  margin-bottom: 20px;
-}
-
 .divider {
   width: 5px;
   height: auto;
@@ -229,6 +217,12 @@ i {
   height: 392px;
   overflow-y: scroll;
 }
-/*.col-md-6, .col-md-3 {
+
+.col-md-3 {
   border: 1px solid black;
-}*/
+}
+
+.col-md-6 {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
