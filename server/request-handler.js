@@ -72,6 +72,7 @@ exports.search = (req, res) => {
         obj.name = el.name;
         obj.price = el.salePrice;
         obj.image = el.thumbnailImage;
+        obj.largeImage = el.largeImage;
         obj.url = el.productUrl;
         obj.itemId = el.itemId;
         acc.push(obj);
@@ -157,6 +158,7 @@ exports.getTrending = (req, res) => {
         return {
           name: item.name,
           image: item.thumbnailImage,
+          largeImage: item.largeImage,
           itemId: item.itemId,
           price: item.salePrice,
           url: item.productUrl,
