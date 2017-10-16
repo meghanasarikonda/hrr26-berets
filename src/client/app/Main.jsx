@@ -58,7 +58,7 @@ class Main extends Component {
 
   sendList() {
     console.log('clicked');
-    var url = 'http://localhost:3000/sendlist';
+    var url = '/sendlist';
     var list = this.state.currentList;
 
     var arr = [];
