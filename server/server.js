@@ -34,7 +34,7 @@ app.use(express.static('public'));
 passport.use(new GoogleStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: 'http://localhost:3000/auth/google/callback'
+  callbackURL: process.env.CLIENT_CALLBACK
 },
 function(accessToken, refreshToken, profile, done) {
   // console.log('profileid1', profile.emails);
