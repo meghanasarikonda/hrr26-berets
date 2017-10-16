@@ -135,7 +135,6 @@ app.get('/zipcodes', handler.getStores);
 app.post('/signup', handler.signUpUser);
 app.post('/login', handler.logInUser);
 app.get('/logout', handler.logOutUser);
-app.post('/sendlist', handler.sendList);
 
 app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/userinfo.email']})
 );
@@ -161,4 +160,4 @@ app.get('/loggedIn/*', function(req, res) {
 });
 
 //handles sending Email
-app.post('/sendlist', handler.sendList);
+app.post('https://legacy-wish-list.herokuapp.com/sendlist', handler.sendList);
