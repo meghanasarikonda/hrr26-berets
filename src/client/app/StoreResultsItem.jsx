@@ -9,7 +9,7 @@ class StoreResultsItem extends React.Component {
 
   render() {
     return (
-      <Card>
+      <Card className="store-card">
         <CardHeader
           title={this.props.name}
           subtitle={

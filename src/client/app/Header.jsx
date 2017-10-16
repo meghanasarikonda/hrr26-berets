@@ -12,21 +12,26 @@ export default class Header extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div>
-          <nav className="navbar navbar-expand-sm navbar-light bg-light">
+          <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             <div className="container">
               <a className="navbar-brand" href="#">WishList</a>
               <div className="collapse navbar-right navbar-collapse" id="navbarText">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <span className="navbar-text">
+                    <span className="navbar-text nav-welcome">
                         Welcome!
                     </span>
+                  </li>
+                </ul>
+                <SearchBar searchProducts={this.props.searchProducts} handleSearch={this.props.handleSearch}/>
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <Link to="/signupUser" className="nav-link" href="#">     </Link>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="#" onClick={this.props.handleLogout}>Log Out</a>
                   </li>
                 </ul>
-                <SearchBar searchProducts={this.props.searchProducts} handleSearch={this.props.handleSearch}/>
               </div>
             </div>
           </nav>
@@ -35,11 +40,18 @@ export default class Header extends React.Component {
     } else {
       return (
         <div>
-          <nav className="navbar navbar-expand-sm navbar-light bg-light">
+          <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             <div className="container">
               <a className="navbar-brand" href="#">WishList</a>
-              <div className="collapse navbar-right navbar-collapse" id="navbarText">
+              <div className="collapse navbar-collapse ml-auto" id="navbarText">
                 <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <span className="navbar-text">
+                    </span>
+                  </li>
+                </ul>
+                <SearchBar searchProducts={this.props.searchProducts} handleSearch={this.props.handleSearch}/>
+                <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link to="/signupUser" className="nav-link" href="#">Sign Up</Link>
                   </li>
@@ -47,7 +59,6 @@ export default class Header extends React.Component {
                     <Link to="/loginUser" className="nav-link" href="#">Log In</Link>
                   </li>
                 </ul>
-                <SearchBar searchProducts={this.props.searchProducts} handleSearch={this.props.handleSearch}/>
               </div>
             </div>
           </nav>

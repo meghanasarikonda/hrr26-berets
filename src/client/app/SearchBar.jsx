@@ -28,7 +28,7 @@ class SearchBar extends Component {
       <form onSubmit={this.beginSearch} className="search">
         <div className="input-group">
           <input id={this.state.query} className="form-control mr-sm-2" onChange={this.onSearch} type="text" placeholder="Search" aria-label="Search"/>
-          <button type="submit" id={this.state.query} onClick={this.beginSearch} className="btn btn-outline-primary my-2 my-sm-0">
+          <button type="submit" id={this.state.query} onClick={this.beginSearch} className="btn btn-outline-secondary my-2 my-sm-0">
               Search
           </button>
         </div>

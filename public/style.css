@@ -1,5 +1,5 @@
 body {
-  background-color: #d9e8f7;
+  background-color: white;
 }
 /*
 h3 {
@@ -16,7 +16,16 @@ h2 {
 
 .navbar-brand {
   font-family: Arial;
-  font-size: 35px;
+  font-size: 30px;
+}
+
+.nav-item {
+  font-family: Arial;
+  font-size: 18px;
+}
+
+.nav-welcome {
+  margin-right: 25px;
 }
 
 .featured {
@@ -64,7 +73,7 @@ h2 {
 .login-forms {
   min-height: 300;
   max-width: 4300px;
-  border: 2px solid black;
+  border: 2px solid #343B40;
   -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
   position: center;
@@ -73,13 +82,17 @@ h2 {
 .storeSearchBar {
   text-align: center;
   font-family: monospace;
-  width: 300px;
+  width: 330px;
   height: 40px;
 }
 
 .searchBtn {
   width: 330px;
   margin-left: 10.625px;
+}
+
+.store-card {
+  border: 1px solid #343B40;
 }
 
 #title {
@@ -97,7 +110,7 @@ h2 {
   width: 2000px;
 /*  padding: 30px;*/
   font-family: monospace;
-/*  border-color: black;
+/*  border-color: #343B40;
   border-style: solid;
   border-width: 1px;*/
   text-align: center;
@@ -125,6 +138,10 @@ h2 {
 .list {
   padding: 30px;
 }
+
+/*.grid-list {
+  border: 1px solid #343B40;
+}*/
 
 .is-table-row {
   display: table;
@@ -187,7 +204,7 @@ i {
 }
 
 .item-title:hover {
-  color: white;
+  color: gray;
 }
 
 .clear-icon {
@@ -226,9 +243,9 @@ i {
 }
 
 /*.col-md-3 {
-  border: 1px solid black;
+  border: 1px solid #343B40;
 }*/
 
 .col-md-6 {
-  border: 1px solid black;
+  border: 1px solid #343B40;
 }
