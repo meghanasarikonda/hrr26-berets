@@ -160,4 +160,4 @@ app.get('/loggedIn/*', function(req, res) {
 });
 
 //handles sending Email
-app.post('https://legacy-wish-list.herokuapp.com/sendlist', handler.sendList);
+app.post('/sendlist', handler.sendList);
