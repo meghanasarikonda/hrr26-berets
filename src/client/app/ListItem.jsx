@@ -61,7 +61,7 @@ class ListItem extends Component {
           }
         </div>
         <div className='col-sm-3'>
-          <FlatButton label="To Walmart.com" href={this.props.item.url} target="_blank" />
+          <FlatButton label="Buy On Walmart" href={this.props.item.url} target="_blank" />
         </div>
       </div>
     );

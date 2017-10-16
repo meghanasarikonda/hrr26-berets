@@ -23,6 +23,7 @@ const styles = {
 const WishListItemScroll = (props) => (
   <div style={styles.root}>
     <GridList
+      className="grid-list"
       cols={2}
       cellHeight={200}
       padding={1}
