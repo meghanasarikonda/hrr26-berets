@@ -233,6 +233,14 @@ i {
   height: 544px;
 }
 
+.login-user {
+  color: inherit;
+}
+
+.login-user:hover {
+  color: gray;
+}
+
 .loading-circle {
   transform: translateY(232px);
 }
