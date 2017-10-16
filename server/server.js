@@ -12,7 +12,6 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 require('dotenv').config();
 const fs = require('fs');
 
-//console.log('-------->', GoogleStrategy)
 const User = require('../db/models/user');
 const Product = require('../db/models/product');
 
@@ -37,11 +36,8 @@ passport.use(new GoogleStrategy({
   callbackURL: process.env.CLIENT_CALLBACK
 },
 function(accessToken, refreshToken, profile, done) {
-  // console.log('profileid1', profile.emails);
+  // console.log('profileemails', profile.emails);
   User.findOne({ 'username': profile.emails[0].value }, function (err, user) {
-    // console.log('profileid2 emails', profile.emails);
-    // console.log('user', user)
-    // console.log('hererere');
     if (err) {
       return done(err);
     }
@@ -62,11 +58,6 @@ function(accessToken, refreshToken, profile, done) {
           done(err, user);
         });
       });
-      // newUser.google.id = profile.id;
-      // newUser.google.token = token;
-      // newUser.google.name = profile.displayName;
-      // newUser.google.email = profile.emails[0].value;
-      console.log('------newUser-----', newUser, '<------');
       newUser.save(function(err) {
         if (err) {
           console.log(err);

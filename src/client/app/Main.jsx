@@ -141,7 +141,6 @@ class Main extends Component {
           searchResults: res.data,
           loading: false
         });
-        console.log('my res.data', res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -157,7 +156,6 @@ class Main extends Component {
     if (!this.props.loggedIn) {
       return alert('Please Log In to Continue');
     }
-    console.log(this.state.currentList);
     let list = this.state.currentList.slice();
     list.unshift(item);
     this.setState({
@@ -207,7 +205,6 @@ class Main extends Component {
     let saved = {};
     saved[this.state.currentListName] = this.state.currentList;
     let url = (this.state.shoppingList[this.state.currentListName] !== undefined) ? '/save-existing' : '/save';
-    console.log(saved);
     axios.post(url, saved)
       .then((res) => {
         let updatedList = res.data.shoppingList;

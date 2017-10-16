@@ -29,7 +29,6 @@ export default class ShoppingList extends Component {
   }
 
   handleChange(listName) {
-    console.log(listName);
     this.state.listName = listName;
     if (this.props.shoppingList[listName]) {
       this.state.currentList = this.props.shoppingList[listName];
