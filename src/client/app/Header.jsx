@@ -14,7 +14,7 @@ export default class Header extends React.Component {
         <div>
           <nav className="navbar navbar-expand-sm navbar-light bg-light">
             <div className="container">
-              <a className="navbar-brand" href="#">wishList</a>
+              <a className="navbar-brand" href="#">WishList</a>
               <div className="collapse navbar-right navbar-collapse" id="navbarText">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
@@ -37,7 +37,7 @@ export default class Header extends React.Component {
         <div>
           <nav className="navbar navbar-expand-sm navbar-light bg-light">
             <div className="container">
-              <a className="navbar-brand" href="#">wishList</a>
+              <a className="navbar-brand" href="#">WishList</a>
               <div className="collapse navbar-right navbar-collapse" id="navbarText">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
