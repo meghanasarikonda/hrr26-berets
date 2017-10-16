@@ -32,6 +32,7 @@ h2 {
 .shoppingContainer {
   background-color: white;
 }
+
 .wrapper {
   display: grid;
   grid-gap: 10px;
@@ -67,7 +68,7 @@ h2 {
 .storeSearchBar {
   text-align: center;
   font-family: monospace;
-  width: 330px;
+  width: 300px;
   height: 40px;
 }
 
