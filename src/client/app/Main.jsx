@@ -356,9 +356,6 @@ class Main extends Component {
     if (Object.keys(this.state.catalog).length === 4) {
       FeaturedListContainer = (
         <div className="row">
-          <br />
-          <br />
-          <h3 className="featured">Featured Items</h3>
           <FeaturedLists
             list={this.state.catalog}
             addToList={this.handleAddToList}
@@ -395,10 +392,12 @@ class Main extends Component {
 
           </div><br />
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
+          <br />
           <div className="row">
             <div className="col-md-3">
             </div>
             <div className="col-md-8">
+              <h3 className="featured">Featured Items</h3>
               {FeaturedListContainer}
             </div>
           </div>
