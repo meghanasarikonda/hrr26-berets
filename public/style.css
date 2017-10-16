@@ -1,8 +1,8 @@
 body {
   background-color: #d9e8f7;
 }
-
-/*h3 {
+/*
+h3 {
   font-family: monospace;
   font-size: 25px;
   text-align: center;
@@ -12,13 +12,18 @@ h2 {
   font-family: monospace;
   font-size: 25px;
   text-align: center;
-}
+}*/
 
 .featured {
-  font-size: 20px;
+/*  font-size: 20px;*/
   text-align: center;
-  font-family: monospace;
-}*/
+  margin-right: 220px;
+/*  font-family: monospace;*/
+}
+
+.featured-items {
+  transform: translateX(-20px);
+}
 
 .searchContainer {
   background-color: white;
@@ -59,9 +64,8 @@ h2 {
   position: center;
 }
 
-.searchBar {
+.storeSearchBar {
   text-align: center;
-  margin-left: 10.625px;
   font-family: monospace;
   width: 330px;
   height: 40px;
@@ -69,7 +73,7 @@ h2 {
 
 .searchBtn {
   width: 330px;
-
+  margin-left: 10.625px;
 }
 
 #title {
@@ -85,12 +89,11 @@ h2 {
 
 #FL-Container {
   width: 2000px;
-  padding: 30px;
-  margin: 5px auto;
+/*  padding: 30px;*/
   font-family: monospace;
-  border-color: black;
+/*  border-color: black;
   border-style: solid;
-  border-width: 1px;
+  border-width: 1px;*/
   text-align: center;
 
 }
@@ -105,9 +108,7 @@ h2 {
   width: 200px;
   float: left;
   padding-top: 5px;
-  padding-right: 15px;
   padding-bottom: 5px;
-  padding-left: 15px;
   text-align: center
 }
 
@@ -218,11 +219,10 @@ i {
   overflow-y: scroll;
 }
 
-.col-md-3 {
+/*.col-md-3 {
   border: 1px solid black;
-}
+}*/
 
 .col-md-6 {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
 }

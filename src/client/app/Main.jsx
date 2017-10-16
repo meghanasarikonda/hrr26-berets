@@ -329,7 +329,7 @@ class Main extends Component {
     }
 
 
-    let ShoppingContainer = <div>Log in to see your wish lists!</div>;
+    let ShoppingContainer = <div><h4>Log in to see your wish lists!</h4></div>;
     if (this.props.loggedIn) {
       ShoppingContainer = (
         <div>
@@ -356,9 +356,6 @@ class Main extends Component {
     if (Object.keys(this.state.catalog).length === 4) {
       FeaturedListContainer = (
         <div className="row">
-          <br />
-          <br />
-          <h3 className="featured">Featured Items</h3>
           <FeaturedLists
             list={this.state.catalog}
             addToList={this.handleAddToList}
@@ -395,13 +392,13 @@ class Main extends Component {
 
           </div><br />
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
+          <br />
           <div className="row">
-            <div className="col-md-1">
+            <div className="col-md-3">
             </div>
-            <div className="col-md-10">
+            <div className="col-md-8 featured-items">
+              <h3 className="featured">Featured Items</h3>
               {FeaturedListContainer}
-            </div>
-            <div className="col-md-1">
             </div>
           </div>
         </div>
