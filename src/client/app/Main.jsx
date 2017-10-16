@@ -329,7 +329,7 @@ class Main extends Component {
     }
 
 
-    let ShoppingContainer = <div>Log in to see your wish lists!</div>;
+    let ShoppingContainer = <div><h4>Log in to see your wish lists!</h4></div>;
     if (this.props.loggedIn) {
       ShoppingContainer = (
         <div>
@@ -396,7 +396,7 @@ class Main extends Component {
           <div className="row">
             <div className="col-md-3">
             </div>
-            <div className="col-md-8">
+            <div className="col-md-8 featured-items">
               <h3 className="featured">Featured Items</h3>
               {FeaturedListContainer}
             </div>

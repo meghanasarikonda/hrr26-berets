@@ -17,8 +17,12 @@ h2 {
 .featured {
 /*  font-size: 20px;*/
   text-align: center;
-  margin-right: 250px;
+  margin-right: 220px;
 /*  font-family: monospace;*/
+}
+
+.featured-items {
+  transform: translateX(-20px);
 }
 
 .searchContainer {
@@ -104,9 +108,7 @@ h2 {
   width: 200px;
   float: left;
   padding-top: 5px;
-  padding-right: 15px;
   padding-bottom: 5px;
-  padding-left: 15px;
   text-align: center
 }
 
