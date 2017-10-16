@@ -396,12 +396,10 @@ class Main extends Component {
           </div><br />
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
-            <div className="col-md-1">
+            <div className="col-md-3">
             </div>
-            <div className="col-md-10">
+            <div className="col-md-8">
               {FeaturedListContainer}
-            </div>
-            <div className="col-md-1">
             </div>
           </div>
         </div>
