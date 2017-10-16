@@ -6,7 +6,6 @@ import Signup from './Signup.jsx';
 import Login from './Login.jsx';
 import ProductDetails from './ProductDetails.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-//import LoggedIn from './LoggedIn.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -50,25 +49,6 @@ class App extends React.Component {
           console.log(err);
         });
     }
-
-    //   console.log('inElse')
-    //   axios.get('/auth/google', {
-    //     params: {
-    //       id: 1
-    //     }
-    //     })
-    //     .then(res => {
-    //       alert(res)
-    //       this.setState({
-    //         loggedIn: true
-    //       })
-    //     })
-    //     .catch(err => {
-    //       console.log('error')
-    //     })
-
-    // }
-    //}
   }
 
   login(username) {

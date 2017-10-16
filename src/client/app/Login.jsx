@@ -47,33 +47,14 @@ class Login extends React.Component {
   }
 
   func(e) {
-
-    console.log('cool');
     this.props.handleLogIn();
-    //e.preventDefault()
-    // console.log('axios', axios)
-  // axios.get('/auth/google', {
-  //   params: {
-  //     name: 'meghana'
-  //   }
-  // })
-  // .then(function (response) {
-  //   console.log('response', response);
-  // })
-  // .catch(function (error) {
-  //   console.log('error in loginjsx');
-  //});
   }
 
   render() {
-    console.log('this.props', this.props);
     if (this.props.loggedIn) {
       return <Redirect to='/'/>;
     }
-    // if (this.props.match.params.userName) {
-    //   this.props.login();
-    //   return <Redirect to='/'/>;
-    // }
+
     return (
       <MuiThemeProvider>
         <div>
