@@ -11,6 +11,7 @@ class StoreSearch extends React.Component {
     };
     this.onSearch = this.onSearch.bind(this);
     this.searchStores = this.searchStores.bind(this);
+    this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
   }
 
   onSearch(e) {
@@ -36,15 +37,23 @@ class StoreSearch extends React.Component {
     e.preventDefault();
   }
 
+  handleEnterKeyPress(e) {
+    if (e.key === 'Enter') {
+      console.log('click');
+      this.searchStores(e);
+    }
+  }
+
   render() {
     return (
       <div>
         <input
-          className="searchBar"
+          className="storeSearchBar"
           id={this.state.query}
           placeholder="Enter a Zipcode for Nearest Walmart"
           type="text"
           onChange={this.onSearch}
+          onKeyPress={this.handleEnterKeyPress}
         />
         <FlatButton
           label="Go"

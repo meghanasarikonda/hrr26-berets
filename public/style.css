@@ -59,9 +59,8 @@ h2 {
   position: center;
 }
 
-.searchBar {
+.storeSearchBar {
   text-align: center;
-  margin-left: 10.625px;
   font-family: monospace;
   width: 330px;
   height: 40px;
@@ -69,7 +68,7 @@ h2 {
 
 .searchBtn {
   width: 330px;
-
+  margin-left: 10.625px;
 }
 
 #title {
@@ -86,7 +85,6 @@ h2 {
 #FL-Container {
   width: 2000px;
   padding: 30px;
-  margin: 5px auto;
   font-family: monospace;
 /*  border-color: black;
   border-style: solid;
