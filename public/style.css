@@ -88,9 +88,9 @@ h2 {
   padding: 30px;
   margin: 5px auto;
   font-family: monospace;
-  border-color: black;
+/*  border-color: black;
   border-style: solid;
-  border-width: 1px;
+  border-width: 1px;*/
   text-align: center;
 
 }
@@ -218,11 +218,10 @@ i {
   overflow-y: scroll;
 }
 
-.col-md-3 {
+/*.col-md-3 {
   border: 1px solid black;
-}
+}*/
 
 .col-md-6 {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
 }
