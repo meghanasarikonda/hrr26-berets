@@ -328,8 +328,7 @@ class Main extends Component {
       );
     }
 
-
-    let ShoppingContainer = <div><h4>Log in to see your wish lists!</h4></div>;
+    let ShoppingContainer = <Link to="/loginUser" className="login-user" href="#">Log in to see your wish list!</Link>;
     if (this.props.loggedIn) {
       ShoppingContainer = (
         <div>
